@@ -1,6 +1,33 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    var posts = (EventLink.Models.InstagramPosts[])ViewData["Insta"];
 }
+
+
+
+
+<table class="table table-dark table-hover text-center">
+    <hr />
+    <tr class="h4"><th>Name</th><th>Sex</th><th>Race</th><th>Business Title</th><th>Job Title</th></tr>
+    @{
+        foreach (EventLink.Models.InstagramPosts post in posts)
+        {
+            <tr>
+                <td>@post.Images</td>
+                <td>@post.Caption</td>
+                <td>@post.Hashtags</td>
+                <td>@post.LocationName</td>
+                <td>@post.Timestamp</td>
+                
+            </tr>
+        }
+    }
+
+</table>
+
+
+
+
 
 <div class="card float-right">
     <div class="row">

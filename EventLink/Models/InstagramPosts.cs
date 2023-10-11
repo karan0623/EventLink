@@ -2,117 +2,20 @@
 //
 // To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
 //
-//    using EventLink;
+//    using QuickType;
 //
 //    var instagramPosts = InstagramPosts.FromJson(jsonString);
 
-namespace EventLink
+namespace EventLink.Models
 {
     using System;
     using System.Collections.Generic;
 
     using System.Globalization;
-    using System.Text.Json.Serialization;
-    using System.Text.Json;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
     public partial class InstagramPosts
-    {
-        [JsonProperty("id")]
-        public string Id { get; set; }
-
-        [JsonProperty("type")]
-        public string Type { get; set; }
-
-        [JsonProperty("shortCode")]
-        public string ShortCode { get; set; }
-
-        [JsonProperty("caption")]
-        public string Caption { get; set; }
-
-        [JsonProperty("hashtags")]
-        public List<string> Hashtags { get; set; }
-
-        [JsonProperty("mentions")]
-        public List<string> Mentions { get; set; }
-
-        [JsonProperty("url")]
-        public Uri Url { get; set; }
-
-        [JsonProperty("commentsCount")]
-        public long CommentsCount { get; set; }
-
-        [JsonProperty("firstComment")]
-        public string FirstComment { get; set; }
-
-        [JsonProperty("latestComments")]
-        public List<LatestComment> LatestComments { get; set; }
-
-        [JsonProperty("dimensionsHeight")]
-        public long DimensionsHeight { get; set; }
-
-        [JsonProperty("dimensionsWidth")]
-        public long DimensionsWidth { get; set; }
-
-        [JsonProperty("displayUrl")]
-        public Uri DisplayUrl { get; set; }
-
-        [JsonProperty("images")]
-        public List<Uri> Images { get; set; }
-
-        [JsonProperty("videoUrl", NullValueHandling = NullValueHandling.Ignore)]
-        public Uri VideoUrl { get; set; }
-
-        [JsonProperty("alt")]
-        public object Alt { get; set; }
-
-        [JsonProperty("likesCount")]
-        public long LikesCount { get; set; }
-
-        [JsonProperty("videoViewCount", NullValueHandling = NullValueHandling.Ignore)]
-        public long? VideoViewCount { get; set; }
-
-        [JsonProperty("videoPlayCount")]
-        public long? VideoPlayCount { get; set; }
-
-        [JsonProperty("timestamp")]
-        public DateTimeOffset Timestamp { get; set; }
-
-        [JsonProperty("childPosts")]
-        public List<ChildPost> ChildPosts { get; set; }
-
-        [JsonProperty("locationName", NullValueHandling = NullValueHandling.Ignore)]
-        public string LocationName { get; set; }
-
-        [JsonProperty("locationId", NullValueHandling = NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(ParseStringConverter))]
-        public long? LocationId { get; set; }
-
-        [JsonProperty("ownerFullName")]
-        public string OwnerFullName { get; set; }
-
-        [JsonProperty("ownerUsername")]
-        public string OwnerUsername { get; set; }
-
-        [JsonProperty("ownerId")]
-        [Newtonsoft.Json.JsonConverter(typeof(ParseStringConverter))]
-        public long OwnerId { get; set; }
-
-        [JsonProperty("productType", NullValueHandling = NullValueHandling.Ignore)]
-        public string ProductType { get; set; }
-
-        [JsonProperty("videoDuration", NullValueHandling = NullValueHandling.Ignore)]
-        public double? VideoDuration { get; set; }
-
-        [JsonProperty("isSponsored")]
-        public bool IsSponsored { get; set; }
-
-        [JsonProperty("taggedUsers", NullValueHandling = NullValueHandling.Ignore)]
-        public List<TaggedUser> TaggedUsers { get; set; }
-    }
-
-    public partial class ChildPost
     {
         [JsonProperty("id")]
         public string Id { get; set; }
@@ -127,10 +30,10 @@ namespace EventLink
         public string Caption { get; set; }
 
         [JsonProperty("hashtags")]
-        public List<object> Hashtags { get; set; }
+        public string[] Hashtags { get; set; }
 
         [JsonProperty("mentions")]
-        public List<object> Mentions { get; set; }
+        public string[] Mentions { get; set; }
 
         [JsonProperty("url")]
         public Uri Url { get; set; }
@@ -142,7 +45,7 @@ namespace EventLink
         public string FirstComment { get; set; }
 
         [JsonProperty("latestComments")]
-        public List<object> LatestComments { get; set; }
+        public LatestComment[] LatestComments { get; set; }
 
         [JsonProperty("dimensionsHeight")]
         public long DimensionsHeight { get; set; }
@@ -154,43 +57,57 @@ namespace EventLink
         public Uri DisplayUrl { get; set; }
 
         [JsonProperty("images")]
-        public List<object> Images { get; set; }
+        public Uri[] Images { get; set; }
+
+        [JsonProperty("videoUrl", NullValueHandling = NullValueHandling.Ignore)]
+        public Uri VideoUrl { get; set; }
 
         [JsonProperty("alt")]
         public object Alt { get; set; }
 
         [JsonProperty("likesCount")]
-        public object LikesCount { get; set; }
+        public long? LikesCount { get; set; }
+
+        [JsonProperty("videoViewCount", NullValueHandling = NullValueHandling.Ignore)]
+        public long? VideoViewCount { get; set; }
+
+        [JsonProperty("videoPlayCount")]
+        public long? VideoPlayCount { get; set; }
 
         [JsonProperty("timestamp")]
-        public object Timestamp { get; set; }
+        public DateTimeOffset? Timestamp { get; set; }
 
         [JsonProperty("childPosts")]
-        public List<object> ChildPosts { get; set; }
+        public InstagramPosts[] ChildPosts { get; set; }
+
+        [JsonProperty("ownerFullName", NullValueHandling = NullValueHandling.Ignore)]
+        public string OwnerFullName { get; set; }
+
+        [JsonProperty("ownerUsername", NullValueHandling = NullValueHandling.Ignore)]
+        public string OwnerUsername { get; set; }
 
         [JsonProperty("ownerId")]
-        public object OwnerId { get; set; }
+        [JsonConverter(typeof(ParseStringConverter))]
+        public long? OwnerId { get; set; }
+
+        [JsonProperty("productType", NullValueHandling = NullValueHandling.Ignore)]
+        public string ProductType { get; set; }
+
+        [JsonProperty("videoDuration", NullValueHandling = NullValueHandling.Ignore)]
+        public double? VideoDuration { get; set; }
+
+        [JsonProperty("isSponsored", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? IsSponsored { get; set; }
 
         [JsonProperty("taggedUsers", NullValueHandling = NullValueHandling.Ignore)]
-        public List<TaggedUser> TaggedUsers { get; set; }
-    }
+        public TaggedUser[] TaggedUsers { get; set; }
 
-    public partial class TaggedUser
-    {
-        [JsonProperty("full_name")]
-        public string FullName { get; set; }
+        [JsonProperty("locationName", NullValueHandling = NullValueHandling.Ignore)]
+        public string LocationName { get; set; }
 
-        [JsonProperty("id")]
-        public string Id { get; set; }
-
-        [JsonProperty("is_verified")]
-        public bool IsVerified { get; set; }
-
-        [JsonProperty("profile_pic_url")]
-        public Uri ProfilePicUrl { get; set; }
-
-        [JsonProperty("username")]
-        public string Username { get; set; }
+        [JsonProperty("locationId", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(ParseStringConverter))]
+        public long? LocationId { get; set; }
     }
 
     public partial class LatestComment
@@ -217,19 +134,37 @@ namespace EventLink
         public long? RepliesCount { get; set; }
 
         [JsonProperty("replies", NullValueHandling = NullValueHandling.Ignore)]
-        public List<object> Replies { get; set; }
+        public LatestComment[] Replies { get; set; }
     }
 
-    public enum TypeEnum { Image };
+    public partial class TaggedUser
+    {
+        [JsonProperty("full_name")]
+        public string FullName { get; set; }
+
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("is_verified")]
+        public bool IsVerified { get; set; }
+
+        [JsonProperty("profile_pic_url")]
+        public Uri ProfilePicUrl { get; set; }
+
+        [JsonProperty("username")]
+        public string Username { get; set; }
+    }
+
+    public enum TypeEnum { Image, Sidecar, Video };
 
     public partial class InstagramPosts
     {
-        public static List<InstagramPosts> FromJson(string json) => JsonConvert.DeserializeObject<List<InstagramPosts>>(json, EventLink.Converter.Settings);
+        public static InstagramPosts[] FromJson(string json) => JsonConvert.DeserializeObject<InstagramPosts[]>(json, EventLink.Models.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this List<InstagramPosts> self) => JsonConvert.SerializeObject(self, EventLink.Converter.Settings);
+        public static string ToJson(this InstagramPosts[] self) => JsonConvert.SerializeObject(self, EventLink.Models.Converter.Settings);
     }
 
     internal static class Converter
@@ -246,45 +181,11 @@ namespace EventLink
         };
     }
 
-    internal class TypeEnumConverter : Newtonsoft.Json.JsonConverter
-    {
-        public override bool CanConvert(Type t) => t == typeof(TypeEnum) || t == typeof(TypeEnum?);
-
-        public override object ReadJson(JsonReader reader, Type t, object existingValue, Newtonsoft.Json.JsonSerializer serializer)
-        {
-            if (reader.TokenType == JsonToken.Null) return null;
-            var value = serializer.Deserialize<string>(reader);
-            if (value == "Image")
-            {
-                return TypeEnum.Image;
-            }
-            throw new Exception("Cannot unmarshal type TypeEnum");
-        }
-
-        public override void WriteJson(JsonWriter writer, object untypedValue, Newtonsoft.Json.JsonSerializer serializer)
-        {
-            if (untypedValue == null)
-            {
-                serializer.Serialize(writer, null);
-                return;
-            }
-            var value = (TypeEnum)untypedValue;
-            if (value == TypeEnum.Image)
-            {
-                serializer.Serialize(writer, "Image");
-                return;
-            }
-            throw new Exception("Cannot marshal type TypeEnum");
-        }
-
-        public static readonly TypeEnumConverter Singleton = new TypeEnumConverter();
-    }
-
-    internal class ParseStringConverter : Newtonsoft.Json.JsonConverter
+    internal class ParseStringConverter : JsonConverter
     {
         public override bool CanConvert(Type t) => t == typeof(long) || t == typeof(long?);
 
-        public override object ReadJson(JsonReader reader, Type t, object existingValue, Newtonsoft.Json.JsonSerializer serializer)
+        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
             if (reader.TokenType == JsonToken.Null) return null;
             var value = serializer.Deserialize<string>(reader);
@@ -296,7 +197,7 @@ namespace EventLink
             throw new Exception("Cannot unmarshal type long");
         }
 
-        public override void WriteJson(JsonWriter writer, object untypedValue, Newtonsoft.Json.JsonSerializer serializer)
+        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
         {
             if (untypedValue == null)
             {
@@ -309,5 +210,51 @@ namespace EventLink
         }
 
         public static readonly ParseStringConverter Singleton = new ParseStringConverter();
+    }
+
+    internal class TypeEnumConverter : JsonConverter
+    {
+        public override bool CanConvert(Type t) => t == typeof(TypeEnum) || t == typeof(TypeEnum?);
+
+        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
+        {
+            if (reader.TokenType == JsonToken.Null) return null;
+            var value = serializer.Deserialize<string>(reader);
+            switch (value)
+            {
+                case "Image":
+                    return TypeEnum.Image;
+                case "Sidecar":
+                    return TypeEnum.Sidecar;
+                case "Video":
+                    return TypeEnum.Video;
+            }
+            throw new Exception("Cannot unmarshal type TypeEnum");
+        }
+
+        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
+        {
+            if (untypedValue == null)
+            {
+                serializer.Serialize(writer, null);
+                return;
+            }
+            var value = (TypeEnum)untypedValue;
+            switch (value)
+            {
+                case TypeEnum.Image:
+                    serializer.Serialize(writer, "Image");
+                    return;
+                case TypeEnum.Sidecar:
+                    serializer.Serialize(writer, "Sidecar");
+                    return;
+                case TypeEnum.Video:
+                    serializer.Serialize(writer, "Video");
+                    return;
+            }
+            throw new Exception("Cannot marshal type TypeEnum");
+        }
+
+        public static readonly TypeEnumConverter Singleton = new TypeEnumConverter();
     }
 }
