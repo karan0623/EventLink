@@ -16,11 +16,6 @@ namespace EventLink.Controllers
 
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult InstaPosts()
-        {
             using (var webClient = new WebClient())
             {
 
