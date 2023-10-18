@@ -19,7 +19,7 @@ namespace EventLink.Controllers
             using (var webClient = new WebClient())
             {
 
-                string jsonString = webClient.DownloadString("https://api.apify.com/v2/datasets/mAMd5WLBqxqtQpWg0/items?token=apify_api_Uea6k2FqNtwergHaVTQ5YiVQm2Q4d80BNqpH");
+                string jsonString = webClient.DownloadString("https://api.apify.com/v2/actor-tasks/exclusive_commode~eventlink---instagram-post-scraper/run-sync-get-dataset-items?token=apify_api_Uea6k2FqNtwergHaVTQ5YiVQm2Q4d80BNqpH&method=POST");
                 var post = InstagramPosts.FromJson(jsonString);
                 ViewData["Insta"] = post;
             }
