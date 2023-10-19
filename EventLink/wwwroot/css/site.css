@@ -30,3 +30,60 @@ body {
 .btn {
     margin-top: auto;
 }
+
+/* Style the navigation bar */
+.navbar {
+    background-color: #fff; /* Background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    padding: 15px 0; /* Add some padding to the top and bottom */
+}
+
+/* Style the brand/logo */
+.navbar-brand {
+    font-size: 24px; /* Adjust the font size */
+    font-weight: bold; /* Make it bold */
+    padding-left: 20px; /* Move EventLink Title Left */
+}
+
+/* Style the navigation links */
+.navbar-nav .nav-link {
+    color: #333; /* Text color */
+    padding: 10px 20px; /* Add some padding around each link */
+}
+
+/* Style the active link */
+.navbar-nav .nav-item.active .nav-link {
+    background-color: #007BFF; /* Background color for active link */
+    color: #fff; /* Text color for active link */
+    border-radius: 5px; /* Add some rounded corners */
+}
+
+/* Style the dropdown menu */
+.dropdown-menu {
+    background-color: #fff; /* Background color */
+    border: 1px solid #ddd; /* Add a border */
+}
+
+/* Style the form in the navbar */
+.form-inline {
+    margin-left: auto; /* Push the search form to the right */
+}
+
+/* Style the search input */
+.form-control[type="search"] {
+    width: 200px; /* Adjust the input width */
+    margin-right: 10px; /* Add right margin to the search input */
+}
+
+/* Style the search button */
+.btn-outline-success[type="submit"] {
+    background-color: #28A745; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none; /* Remove button border */
+    padding: 5px 10px; /* Add padding around the search button */
+}
+
+/* Style the toggle button on small screens */
+.navbar-toggler-icon {
+    background-color: #333; /* Toggle button color */
+}
