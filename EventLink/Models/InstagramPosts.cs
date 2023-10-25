@@ -12,6 +12,7 @@ namespace EventLink.Models
     using System.Collections.Generic;
 
     using System.Globalization;
+    using Microsoft.EntityFrameworkCore;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
