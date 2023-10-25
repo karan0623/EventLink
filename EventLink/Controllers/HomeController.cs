@@ -43,7 +43,7 @@ namespace EventLink.Controllers
         }
         //public async Task InsertDataIntoDatabaseAsync(List<InstagramPosts> data)
         //{
-        //    using (var context = new YourDbContext())
+        //    using (var context = new InstagramPostsContext())
         //    {
         //        context.YourModels.AddRange(data);
         //        await context.SaveChangesAsync();
