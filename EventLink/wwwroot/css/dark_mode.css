@@ -1,0 +1,15 @@
+﻿/* Dark mode styles */
+    body .dark-mode
+
+{
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Light text color */
+}
+
+table.table-dark.dark-mode {
+    background-color: #444; /* Dark table background color */
+    color: #fff; /* Light text color for table */
+}
+
+/* Add more dark mode styles as needed */
+
