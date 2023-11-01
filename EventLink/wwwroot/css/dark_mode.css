@@ -1,15 +1,99 @@
 ﻿/* Dark mode styles */
-    body .dark-mode
 
-{
+body.dark-mode {
     background-color: #333; /* Dark background color */
     color: #fff; /* Light text color */
 }
 
-table.table-dark.dark-mode {
-    background-color: #444; /* Dark table background color */
-    color: #fff; /* Light text color for table */
+.title.dark-mode {
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    color: #fff; /* Light text color */
 }
 
-/* Add more dark mode styles as needed */
+.card-block.dark-mode {
+    font-size: 1em;
+    position: relative;
+    margin: 0;
+    padding: 1em;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Light border color */
+    box-shadow: none;
+    background-color: #444; /* Dark card background color */
+    color: #fff; /* Light text color */
+}
 
+.card.dark-mode {
+    font-size: 1em;
+    overflow: hidden;
+    padding: 5px;
+    border: none;
+    border-radius: .28571429rem;
+    box-shadow: 0 1px 3px 0 #000, 0 0 0 1px #000; /* Dark box shadow */
+    margin-top: 20px;
+    background-color: #222; /* Dark card background color */
+    color: #fff; /* Light text color */
+}
+
+.btn.dark-mode {
+    margin-top: auto;
+    background-color: #28A745; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none; /* Remove button border */
+}
+
+/* Style the navigation bar */
+.navbar.dark-mode {
+    background-color: #333; /* Dark background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    padding: 15px 0; /* Add some padding to the top and bottom */
+}
+
+/* Style the brand/logo */
+.navbar-brand.dark-mode {
+    font-size: 24px; /* Adjust the font size */
+    font-weight: bold; /* Make it bold */
+    padding-left: 20px; /* Move EventLink Title Left */
+    color: #fff; /* Light text color */
+}
+
+/* Style the navigation links */
+.navbar-nav .nav-link.dark-mode {
+    color: #fff; /* Light text color */
+    padding: 10px 20px; /* Add some padding around each link */
+}
+
+/* Style the active link */
+.navbar-nav .nav-item.active .nav-link.dark-mode {
+    background-color: #007BFF; /* Background color for active link */
+    color: #fff; /* Text color for active link */
+    border-radius: 5px; /* Add some rounded corners */
+}
+
+/* Style the dropdown menu */
+.dropdown-menu.dark-mode {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Light text color */
+}
+
+/* Style the search input */
+.form-control[type="search"].dark-mode {
+    width: 200px; /* Adjust the input width */
+    margin-right: 10px; /* Add right margin to the search input */
+    background-color: #444; /* Dark background color */
+    color: #fff; /* Light text color */
+    border: 1px solid #ddd; /* Add a border */
+}
+
+/* Style the search button */
+.btn-outline-success[type="submit"].dark-mode {
+    background-color: #28A745; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none; /* Remove button border */
+    padding: 5px 10px; /* Add padding around the search button */
+}
+
+/* Style the toggle button on small screens */
+.navbar-toggler-icon.dark-mode {
+    background-color: #fff; /* Toggle button color */
+}
