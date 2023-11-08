@@ -16,13 +16,6 @@ namespace EventLink.Controllers
 
         public IActionResult Index()
         {
-            using (var webClient = new WebClient())
-            {
-
-                string jsonString = webClient.DownloadString("https://api.apify.com/v2/actor-tasks/exclusive_commode~eventlink---instagram-post-scraper/run-sync-get-dataset-items?token=apify_api_Uea6k2FqNtwergHaVTQ5YiVQm2Q4d80BNqpH");
-                var post = InstagramPosts.FromJson(jsonString);
-                ViewData["Insta"] = post;
-            }
             return View();
         }
 
