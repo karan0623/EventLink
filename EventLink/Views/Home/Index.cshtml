@@ -6,44 +6,28 @@
 
 
 
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Caption</th>
-        <th>DisplayUrl</th>
-        <th>VideoUrl</th>
-        <th>Timestamp</th>
-        <th>OwnerFullName</th>
-        <th>OwnerUsername</th>
-        <th>OwnerId</th>
-        <th>LocationName</th>
-    </tr>
-@if (Model != null)
+
+@foreach (var item in Model)
 {
-    foreach (var item in Model)
-    {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.Caption</td>
-                <td>@item.DisplayUrl</td>
-                <td>@item.VideoUrl</td>
-                <td>@item.Timestamp</td>
-                <td>@item.OwnerFullName</td>
-                <td>@item.OwnerUsername</td>
-                <td>@item.OwnerId</td>
-                <td>@item.LocationName</td>
-            </tr>
-    }
+    <div class="card float-right">
+        <div class="row">
+            <div class="col-sm-5">
+                <img class="d-block" src="@item.DisplayUrl" alt="">
+            </div>
+            <div class="col-md-7 px-3">
+                <div class="card-block px-6">
+                    <h4 class="card-title">@item.Caption</h4>
+          
+                    <p class="card-text">Owner: @item.OwnerFullName (@item.OwnerUsername)</p>
+                    <p class="card-text">Location: @item.LocationName</p>
+                    <p class="card-text">Timestamp: @item.Timestamp</p>
+                    <br>
+                    <a href="#" class="mt-auto btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
 }
-else
-{
-    <p>No data available.</p>
-}
-</table>
-
-
-
-
 
 
 
