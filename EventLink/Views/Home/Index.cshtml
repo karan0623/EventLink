@@ -1,6 +1,49 @@
-﻿@{
+﻿@model List<EventLink.Models.InstagramPostsEvents>
+@{
     ViewData["Title"] = "Home Page";
+    
 }
+
+
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Caption</th>
+        <th>DisplayUrl</th>
+        <th>VideoUrl</th>
+        <th>Timestamp</th>
+        <th>OwnerFullName</th>
+        <th>OwnerUsername</th>
+        <th>OwnerId</th>
+        <th>LocationName</th>
+    </tr>
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Caption</td>
+                <td>@item.DisplayUrl</td>
+                <td>@item.VideoUrl</td>
+                <td>@item.Timestamp</td>
+                <td>@item.OwnerFullName</td>
+                <td>@item.OwnerUsername</td>
+                <td>@item.OwnerId</td>
+                <td>@item.LocationName</td>
+            </tr>
+    }
+}
+else
+{
+    <p>No data available.</p>
+}
+</table>
+
+
+
+
 
 
 
