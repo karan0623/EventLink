@@ -14,8 +14,15 @@ namespace EventLink.Controllers
             _logger = logger;
         }
 
+       
+
         public IActionResult Index()
         {
+            using (var context = new InstagramPostsEventsContext())
+            {
+                List<InstagramPostsEvents> data = context.InstagramPostsEvents.ToList();
+                return View(data);
+            }
             return View();
         }
 
@@ -23,7 +30,7 @@ namespace EventLink.Controllers
         {
             return View();
         }
-
+       
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

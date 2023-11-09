@@ -1,6 +1,33 @@
-﻿@{
+﻿@model List<EventLink.Models.InstagramPostsEvents>
+@{
     ViewData["Title"] = "Home Page";
+    
 }
+
+
+
+
+@foreach (var item in Model)
+{
+    <div class="card float-right">
+        <div class="row">
+            <div class="col-sm-5">
+                <img class="d-block" src="@item.DisplayUrl" alt="" style="width: 500px; height: auto;">
+            </div>
+            <div class="col-md-7 px-3">
+                <div class="card-block px-6">
+                    <h4 class="card-title">@item.OwnerFullName (@item.OwnerUsername)</h4>
+
+                    <p class="card-text">@item.Caption</p>
+                    <p class="card-text">@item.LocationName</p>
+                    <br>
+                    <a href="@item.Url" class="mt-auto btn btn-primary">Go to Post</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
 
 
 
