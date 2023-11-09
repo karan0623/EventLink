@@ -31,5 +31,7 @@ namespace EventLink.Models
         
         public string? LocationName { get; set; }
 
+        public Uri? Url { get; set; }
+
     }
 }
