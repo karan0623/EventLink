@@ -23,7 +23,7 @@ namespace EventLink.Controllers
         {
             return View();
         }
-        //test
+       
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
