@@ -5,30 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - EventLink</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/EventLink.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/dark_mode.css" asp-append-version="true" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light dark-mode">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light dark-mode navbar-header">
             <a class="navbar-brand" href="#">EventLink</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
-            <button id="darkModeToggle">Toggle Dark Mode</button>
-
-            <script>
-                const darkModeToggle = document.getElementById("darkModeToggle");
-                const body = document.body;
-
-                darkModeToggle.addEventListener("click", function () {
-                    body.classList.toggle("dark-mode");
-
-                });
-            </script>
-
 
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -50,10 +37,56 @@
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
                     </li>
-                    <li class="nav-item">
+                    @* <li class="nav-item">
                         <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
+                    </li> *@
                 </ul>
+
+                <button id="darkModeToggle">Toggle Dark Mode</button>
+                <script>
+
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const darkModeToggle = document.getElementById("darkModeToggle");
+                        const body = document.body;
+                        const cards = document.querySelectorAll(".card");
+                        const titles = document.querySelectorAll(".title");
+                        const cardBlocks = document.querySelectorAll(".card-block");
+                        const buttons = document.querySelectorAll(".btn");
+                        const navbar = document.querySelectorAll(".navbar");
+                        const navbarBrands = document.querySelectorAll(".navbar-brand");
+                        const navLinks = document.querySelectorAll(".nav-link");
+                        const dropdownMenus = document.querySelectorAll(".dropdown-menu");
+                        const searchInputs = document.querySelectorAll(".form-control[type='search']");
+                        const searchButtons = document.querySelectorAll(".btn-outline-success[type='submit']");
+                        const navbarTogglerIcons = document.querySelectorAll(".navbar-toggler-icon");
+                        const darkModeNavbarCollapse = document.querySelector(".collapse");
+                        const header = document.querySelector("header");
+
+                        // Function to toggle dark mode
+                        const toggleDarkMode = () => {
+                            body.classList.toggle("dark-mode");
+                            cards.forEach(card => card.classList.toggle("dark-mode"));
+                            titles.forEach(title => title.classList.toggle("dark-mode"));
+                            cardBlocks.forEach(block => block.classList.toggle("dark-mode"));
+                            buttons.forEach(button => button.classList.toggle("dark-mode"));
+                            navbar.forEach(navbar => navbar.classList.toggle("dark-mode"));
+                            navbarBrands.forEach(brand => brand.classList.toggle("dark-mode"));
+                            navLinks.forEach(link => link.classList.toggle("dark-mode"));
+                            dropdownMenus.forEach(menu => menu.classList.toggle("dark-mode"));
+                            searchInputs.forEach(input => input.classList.toggle("dark-mode"));
+                            searchButtons.forEach(button => button.classList.toggle("dark-mode"));
+                            navbarTogglerIcons.forEach(icon => icon.classList.toggle("dark-mode"));
+                            darkModeNavbarCollapse.classList.toggle("dark-mode"); // Toggle dark mode for the .navbar-collapse
+                            header.classList.toggle("dark-mode");
+                        };
+                        // Add a click event listener to the button
+                        darkModeToggle.addEventListener("click", () => {
+                            toggleDarkMode();
+                        });
+                    });
+                </script>
+
+         
                 <form class="form-inline my-2 my-lg-0">
                     <div class="input-group">
                         <input class="form-control" type="search" placeholder="Search" aria-label="Search">
@@ -75,6 +108,8 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    @* <script src="~/js/dark_mode.js"></script> *@
+
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
