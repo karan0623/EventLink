@@ -23,7 +23,6 @@ namespace EventLink.Controllers
                 List<InstagramPostsEvents> data = context.InstagramPostsEvents.ToList();
                 return View(data);
             }
-            return View();
         }
 
         public IActionResult Privacy()
