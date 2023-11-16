@@ -1,0 +1,164 @@
+﻿/* Dark mode styles */
+
+body.dark-mode {
+    background-color: #333;  Dark background color 
+    color: #fff;  Light text color 
+}
+
+.card.dark-mode {
+    background-color: #333; /* Dark card background color */
+    color: #fff; /* Light text color */
+}
+
+.title.dark-mode {
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    color: #fff; /* Light text color */
+}
+
+.card-block.dark-mode {
+    background-color: #333; /* Dark card background color */
+    color: #fff; /* Light text color */
+}
+    
+.btn.dark-mode {
+    margin-top: auto;
+    background-color: #28A745; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none; /* Remove button border */
+}
+
+/* Styles for dark mode */
+body.dark-mode .navbar {
+    background-color: #333; /* Dark background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    padding: 15px 0; /* Add some padding to the top and bottom */
+    position: relative;
+}
+
+    body.dark-mode .navbar::before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 16px; /* Adjust the height based on your design */
+        background-color: #333; /* Dark background color */
+        z-index: 1; /* Ensure it's in front in dark mode */
+    }
+
+    /* Bottom border in dark mode */
+    body.dark-mode .navbar::after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 16px; /* Adjust the height based on your design */
+        background-color: #333; /* Dark background color */
+        z-index: 1; /* Ensure it's in front in dark mode */
+    }
+
+
+
+
+/* Additional styles for top and bottom borders */
+.navbar-border {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1rem; /* Adjust the height based on your design */
+}
+
+.navbar-border-top {
+    top: 0;
+    background-color: #333; /* Dark background color */
+}
+
+.navbar-border-bottom {
+    bottom: 0;
+    background-color: #333; /* Dark background color */
+}
+
+
+
+/* Adjust the navbar background and text color */
+.navbar-header.dark-mode {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Light text color */
+}
+
+/* Style the brand/logo */
+.navbar-brand.dark-mode {
+    font-size: 24px; /* Adjust the font size */
+    font-weight: bold; /* Make it bold */
+    padding-left: 20px; /* Move EventLink Title Left */
+    color: #fff; /* Light text color */
+    background-color: #333;
+    position: relative;
+}
+
+    /* Add dark border to the right of the navbar-brand in dark mode */
+    .navbar-brand.dark-mode::after {
+        content: '';
+        display: block;
+        width: 1rem; /* Adjust the width based on your design */
+        height: 100%;
+        background-color: #333; /* Black border color */
+        position: absolute;
+        top: 0;
+        right: -1rem; /* Extend the border to the right by 1 rem */
+    }
+
+
+/* Style the navigation links */
+.navbar-nav .nav-link.dark-mode {
+    color: #fff; /* Light text color */
+    padding: 10px 20px; /* Add some padding around each link */
+    background-color: #333;
+}
+
+/* Style the active link */
+.navbar-nav .nav-item.active .nav-link.dark-mode {
+    background-color: #007BFF; /* Background color for active link */
+    color: #fff; /* Text color for active link */
+    border-radius: 5px; /* Add some rounded corners */
+}
+
+/* Style the dropdown menu */
+.dropdown-menu.dark-mode {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Light text color */
+}
+
+/* Style the search input */
+.form-control[type="search"].dark-mode {
+    width: 200px; /* Adjust the input width */
+    margin-right: 10px; /* Add right margin to the search input */
+    background-color: #444; /* Dark background color */
+    color: #fff; /* Light text color */
+    border: 1px solid #ddd; /* Add a border */
+}
+
+/* Style the search button */
+.btn-outline-success[type="submit"].dark-mode {
+    background-color: #28A745; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none; /* Remove button border */
+    padding: 5px 10px; /* Add padding around the search button */
+}
+
+/* Style the toggle button on small screens */
+.navbar-toggler-icon.dark-mode {
+    background-color: #333; /* Toggle button color */
+}
+
+.collapse.dark-mode {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Light text color */
+}
+ 
+
+

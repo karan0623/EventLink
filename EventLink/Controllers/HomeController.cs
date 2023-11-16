@@ -14,8 +14,6 @@ namespace EventLink.Controllers
             _logger = logger;
         }
 
-       
-
         public IActionResult Index()
         {
             using (var context = new InstagramPostsEventsContext())
@@ -23,8 +21,9 @@ namespace EventLink.Controllers
                 List<InstagramPostsEvents> data = context.InstagramPostsEvents.ToList();
                 return View(data);
             }
-        }
 
+        }
+        
         public IActionResult Privacy()
         {
             return View();
