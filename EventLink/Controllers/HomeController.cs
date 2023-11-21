@@ -23,7 +23,7 @@ namespace EventLink.Controllers
             }
 
         }
-        
+        //Test Commit
         public IActionResult Privacy()
         {
             return View();
