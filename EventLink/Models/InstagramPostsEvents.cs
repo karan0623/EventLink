@@ -23,6 +23,43 @@ namespace EventLink.Models
         public Uri? Url { get; set; }
 
 
+        // Add this method to your InstagramPostsEvents class
+        public string GetCategoryName()
+        {
+            if (this is InstagramPostsEventsConcerts)
+            {
+                return "Concerts";
+            }
+            else if (this is InstagramPostsEventsSports)
+            {
+                return "Sports";
+            }
+            else if (this is InstagramPostsEventsRestaurants)
+            {
+                return "Restaurants";
+            }
+            else
+            {
+                return "All";
+            }
+        }
+
+
+
+    }
+
+    public class InstagramPostsEventsConcerts: InstagramPostsEvents
+    {
+
+    }
+
+    public class InstagramPostsEventsSports : InstagramPostsEvents
+    {
+
+    }
+
+    public class InstagramPostsEventsRestaurants : InstagramPostsEvents
+    {
 
     }
 }

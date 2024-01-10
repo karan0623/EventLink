@@ -2,26 +2,37 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
-$(document).ready(function () {
-    // Attach an event listener to the form submission
-    $("form").submit(function (event) {
-        event.preventDefault(); // Prevent the form from submitting
 
-        // Get the search input value
-        var searchTerm = $("#searchInput").val().toLowerCase();
+function getCategoryName(item) {
+    if (item instanceof InstagramPostsEventsConcerts) {
+        return 'Concerts';
+    } else if (item instanceof InstagramPostsEventsSports) {
+        return 'Sports';
+    } else if (item instanceof InstagramPostsEventsRestaurants) {
+        return 'Restaurants';
+    } else {
+        return 'All';
+    }
+}
 
-        // Perform the search logic
-        $(".card").each(function () {
-            var cardText = $(this).find('.card-text').text().toLowerCase();
+function filterData(option) {
+    var searchTerm = $("#searchInput").val().toLowerCase();
 
-            if (cardText.includes(searchTerm)) {
-                $(this).show();
-            } else {
-                $(this).hide();
-            }
-        });
+    $(".card").each(function () {
+        var cardText = $(this).find('.card-text').text().toLowerCase();
+        var category = getCategoryName(this);
+
+        if ((option === 'All' || category === option) && cardText.includes(searchTerm)) {
+            $(this).show();
+        } else {
+            $(this).hide();
+        }
     });
-});
+}
+
+
+
+
 
 
 

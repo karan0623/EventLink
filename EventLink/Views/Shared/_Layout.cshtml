@@ -1,7 +1,5 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="~/Scripts/search.js"></script>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,107 +9,145 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/dark_mode.css" asp-append-version="true" />
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light dark-mode navbar-header">
             <a class="navbar-brand" href="#">EventLink</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index" >Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                            Home
+                            <span class="sr-only">(current)</span>
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Filter
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#" onclick="filterData('All')">All</a>
+                            <a class="dropdown-item" href="#" onclick="filterData('Concerts')">Concerts</a>
+                            <a class="dropdown-item" href="#" onclick="filterData('Sports')">Sports</a>
+                            <a class="dropdown-item" href="#" onclick="filterData('Restaurants')">Restaurants</a>
                         </div>
                     </li>
-                    @* <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </li> *@
+
                 </ul>
 
                 <button id="darkModeToggle">Toggle Dark Mode</button>
-                <script>
 
-                    document.addEventListener("DOMContentLoaded", function () {
-                        const darkModeToggle = document.getElementById("darkModeToggle");
-                        const body = document.body;
-                        const cards = document.querySelectorAll(".card");
-                        const titles = document.querySelectorAll(".title");
-                        const cardBlocks = document.querySelectorAll(".card-block");
-                        const buttons = document.querySelectorAll(".btn");
-                        const navbar = document.querySelectorAll(".navbar");
-                        const navbarBrands = document.querySelectorAll(".navbar-brand");
-                        const navLinks = document.querySelectorAll(".nav-link");
-                        const dropdownMenus = document.querySelectorAll(".dropdown-menu");
-                        const searchInputs = document.querySelectorAll(".form-control[type='search']");
-                        const searchButtons = document.querySelectorAll(".btn-outline-success[type='submit']");
-                        const navbarTogglerIcons = document.querySelectorAll(".navbar-toggler-icon");
-                        const darkModeNavbarCollapse = document.querySelector(".collapse");
-                        const header = document.querySelector("header");
-
-                        // Function to toggle dark mode
-                        const toggleDarkMode = () => {
-                            body.classList.toggle("dark-mode");
-                            cards.forEach(card => card.classList.toggle("dark-mode"));
-                            titles.forEach(title => title.classList.toggle("dark-mode"));
-                            cardBlocks.forEach(block => block.classList.toggle("dark-mode"));
-                            buttons.forEach(button => button.classList.toggle("dark-mode"));
-                            navbar.forEach(navbar => navbar.classList.toggle("dark-mode"));
-                            navbarBrands.forEach(brand => brand.classList.toggle("dark-mode"));
-                            navLinks.forEach(link => link.classList.toggle("dark-mode"));
-                            dropdownMenus.forEach(menu => menu.classList.toggle("dark-mode"));
-                            searchInputs.forEach(input => input.classList.toggle("dark-mode"));
-                            searchButtons.forEach(button => button.classList.toggle("dark-mode"));
-                            navbarTogglerIcons.forEach(icon => icon.classList.toggle("dark-mode"));
-                            darkModeNavbarCollapse.classList.toggle("dark-mode"); // Toggle dark mode for the .navbar-collapse
-                            header.classList.toggle("dark-mode");
-                        };
-                        // Add a click event listener to the button
-                        darkModeToggle.addEventListener("click", () => {
-                            toggleDarkMode();
-                        });
-                    });
-                </script>
-
-         
                 <form class="form-inline my-2 my-lg-0">
                     <div class="input-group">
-                        <input id="searchInput" class="form-control" type="search" placeholder="Search" aria-label="Search">
+                        <input id="searchInput" class="form-control" type="search" placeholder="Search"
+                               aria-label="Search">
                         <div class="input-group-append">
                             <button class="btn btn-outline-success" type="submit">Search</button>
                         </div>
                     </div>
                 </form>
-
-
             </div>
         </nav>
-        
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @* <script src="~/js/dark_mode.js"></script> *@
+
+    <script>
+        $(document).ready(function () {
+            const darkModeToggle = $("#darkModeToggle");
+            const body = $("body");
+            const cards = $(".card");
+            const titles = $(".title");
+            const cardBlocks = $(".card-block");
+            const buttons = $(".btn");
+            const navbar = $(".navbar");
+            const navbarBrands = $(".navbar-brand");
+            const navLinks = $(".nav-link");
+            const dropdownMenus = $(".dropdown-menu");
+            const searchInputs = $(".form-control[type='search']");
+            const searchButtons = $(".btn-outline-success[type='submit']");
+            const navbarTogglerIcons = $(".navbar-toggler-icon");
+            const darkModeNavbarCollapse = $(".collapse");
+            const header = $("header");
+
+            const toggleDarkMode = () => {
+                body.toggleClass("dark-mode");
+                cards.toggleClass("dark-mode");
+                titles.toggleClass("dark-mode");
+                cardBlocks.toggleClass("dark-mode");
+                buttons.toggleClass("dark-mode");
+                navbar.toggleClass("dark-mode");
+                navbarBrands.toggleClass("dark-mode");
+                navLinks.toggleClass("dark-mode");
+                dropdownMenus.toggleClass("dark-mode");
+                searchInputs.toggleClass("dark-mode");
+                searchButtons.toggleClass("dark-mode");
+                navbarTogglerIcons.toggleClass("dark-mode");
+                darkModeNavbarCollapse.toggleClass("dark-mode");
+                header.toggleClass("dark-mode");
+            };
+
+            const filterData = (option) => {
+                const searchTerm = $("#searchInput").val().toLowerCase();
+
+                cards.each(function () {
+                    const cardText = $(this).find('.card-text').text().toLowerCase();
+                    const cardCategory = $(this).data('category').toLowerCase();
+
+                    if ((option === 'All' || cardCategory === option) && cardText.includes(searchTerm)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            };
+
+            darkModeToggle.on("click", () => {
+                toggleDarkMode();
+            });
+
+            // Event listener for dropdown item clicks
+            $(".dropdown-item").on("click", function () {
+                const selectedOption = $(this).text().trim();
+                filterData(selectedOption);
+            });
+
+            $("form").on("submit", function (event) {
+                event.preventDefault();
+                const searchTerm = $("#searchInput").val().toLowerCase();
+
+                cards.each(function () {
+                    const cardText = $(this).find('.card-text').text().toLowerCase();
+
+                    if (cardText.includes(searchTerm)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
+
+
 
 
     @await RenderSectionAsync("Scripts", required: false)
