@@ -2,28 +2,35 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Net;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace EventLink.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly InstagramPostService _instagramPostService; // Add this
-
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _instagramPostService = new InstagramPostService(); // Initialize the service
         }
 
         public async Task<IActionResult> Index() // Change this to async Task<IActionResult>
         {
             using (var context = new InstagramPostsEventsContext())
-            {
-                // Use the service to get processed Instagram posts
-                var data = await _instagramPostService.GetProcessedInstagramPostsAsync(context);
+            {      
+                IQueryable<InstagramPostsEvents> query = context.InstagramPostsEvents;
+                List<InstagramPostsEvents> data = query.ToList();
                 return View(data);
             }
+        }
+
+        public static string GetRandomImageFromFolder()
+        {
+            var imageFolder = "wwwroot/images/concerts"; // Your image folder
+            var images = Directory.GetFiles(imageFolder, "*.jpg"); // Adjust the pattern for different image types if needed
+            Random rand = new Random();
+            var randomImage = images[rand.Next(images.Length)];
+            return "/images/concerts/" + Path.GetFileName(randomImage); // Adjust the path as necessary
         }
 
         /*

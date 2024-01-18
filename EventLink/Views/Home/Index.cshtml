@@ -5,15 +5,15 @@
 }
 
 
-
-
-
 @foreach (var item in Model)
 {
+    string randomImageUrl = EventLink.Controllers.HomeController.GetRandomImageFromFolder();
     <div class="card float-right">
         <div class="row">
             <div class="col-sm-5">
-                <img class="d-block" src="@item.DisplayUrl" alt="" style="width: 500px; height: auto;">
+                <img class="d-block" src="@item.DisplayUrl" alt=""
+                     style="width: 500px; height: auto;"
+                     onerror="this.onerror=null; this.src='@randomImageUrl';">
             </div>
             <div class="col-md-7 px-3">
                 <div class="card-block px-6">
@@ -27,8 +27,6 @@
         </div>
     </div>
 }
-
-
 
 
 <div class="card float-right">
