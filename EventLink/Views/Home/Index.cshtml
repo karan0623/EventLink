@@ -7,7 +7,7 @@
 
 @foreach (var item in Model)
 {
-    string randomImageUrl = EventLink.Controllers.HomeController.GetRandomImageFromFolder();
+    string randomImageUrl = EventLink.Controllers.HomeController.GetRandomImageFromFolder(item.Category);
     <div class="card float-right">
         <div class="row">
             <div class="col-sm-5">

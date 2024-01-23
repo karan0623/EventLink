@@ -24,6 +24,7 @@ namespace EventLink.Controllers
             }
         }
 
+        /*
         public static string GetRandomImageFromFolder()
         {
             var imageFolder = "wwwroot/images/concerts"; // image folder
@@ -32,6 +33,44 @@ namespace EventLink.Controllers
             var randomImage = images[rand.Next(images.Length)];
             return "/images/concerts/" + Path.GetFileName(randomImage); // Adjust the path as necessary
         } //Source ChatGPT RandomImageFromFolder() generation method https://chat.openai.com/
+        */
+
+        public static string GetRandomImageFromFolder(string categoryCode)
+        {
+            string imageFolderSubPath;
+
+            if (categoryCode.ToLower() == "r")
+            {
+                imageFolderSubPath = "restaurants";
+            }
+            else if (categoryCode.ToLower() == "s")
+            {
+                imageFolderSubPath = "sports";
+            }
+            else if (categoryCode.ToLower() == "c")
+            {
+                imageFolderSubPath = "concerts";
+            }
+            else
+            {
+                imageFolderSubPath = "default"; // default folder for unrecognized categories
+            }
+
+            var baseImageFolder = Path.Combine("wwwroot", "images", imageFolderSubPath);
+            var images = Directory.GetFiles(baseImageFolder, "*.jpg"); // Adjust for different image formats if needed
+
+            if (images.Length == 0)
+            {
+                return "/images/default/default-image.jpg"; // Path to a default image if no images are found
+            }
+
+            Random rand = new Random();
+            var randomImage = images[rand.Next(images.Length)];
+            var relativePath = Path.Combine("/images", imageFolderSubPath, Path.GetFileName(randomImage));
+
+            return relativePath.Replace('\\', '/'); // Convert to web-friendly path
+        }
+
 
 
 
