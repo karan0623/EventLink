@@ -8,6 +8,7 @@ using System.Linq;
 
 namespace EventLink.Controllers
 {
+    //Parts of this code ChatGPT was used in order to help with the functionality
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
