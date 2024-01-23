@@ -26,30 +26,14 @@ namespace EventLink.Controllers
 
         public static string GetRandomImageFromFolder()
         {
-            var imageFolder = "wwwroot/images/concerts"; // Your image folder
-            var images = Directory.GetFiles(imageFolder, "*.jpg"); // Adjust the pattern for different image types if needed
+            var imageFolder = "wwwroot/images/concerts"; // image folder
+            var images = Directory.GetFiles(imageFolder, "*.jpg"); // retrieving all jpg images
             Random rand = new Random();
             var randomImage = images[rand.Next(images.Length)];
             return "/images/concerts/" + Path.GetFileName(randomImage); // Adjust the path as necessary
-        }
+        } //Source ChatGPT RandomImageFromFolder() generation method https://chat.openai.com/
 
-        /*
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
-        public IActionResult Index()
-        {
-            using (var context = new InstagramPostsEventsContext())
-            {
-                List<InstagramPostsEvents> data = context.InstagramPostsEvents.ToList();
-                return View(data);
-            }
-
-        } */
 
         public IActionResult Privacy()
         {
