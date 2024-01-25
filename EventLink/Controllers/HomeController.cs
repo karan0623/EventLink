@@ -1,11 +1,16 @@
 ﻿using EventLink.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using System.Linq;
 
 namespace EventLink.Controllers
 {
+    //Parts of this code ChatGPT was used in order to help with the functionality
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -14,11 +19,17 @@ namespace EventLink.Controllers
             _logger = logger;
         }
 
-        public async Task<IActionResult> Index() // Change this to async Task<IActionResult>
+      public IActionResult Index(string category = "All")
         {
             using (var context = new InstagramPostsEventsContext())
-            {      
+            {
                 IQueryable<InstagramPostsEvents> query = context.InstagramPostsEvents;
+
+                if (category != "All")
+                {
+                    query = query.Where(e => e.Category == category);
+                }
+
                 List<InstagramPostsEvents> data = query.ToList();
                 return View(data);
             }
@@ -60,14 +71,11 @@ namespace EventLink.Controllers
             return relativePath.Replace('\\', '/'); // Convert to web-friendly path
         }
 
-
-
-
         public IActionResult Privacy()
         {
             return View();
         }
-       
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

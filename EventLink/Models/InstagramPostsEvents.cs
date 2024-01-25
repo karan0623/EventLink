@@ -25,7 +25,7 @@ namespace EventLink.Models
 
         public Uri? Url { get; set; }
 
-
+        public string Category { get; set; }
 
     }
 }

@@ -1,7 +1,7 @@
 ﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
 
-// Write your JavaScript code.
+/*Parts of this code ChatGPT was used in order to help with the functionality*/
+
 $(document).ready(function () {
     // Attach an event listener to the form submission
     $("form").submit(function (event) {
