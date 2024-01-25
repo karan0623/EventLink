@@ -1,8 +1,8 @@
 ﻿/* Dark mode styles */
 
 body.dark-mode {
-    background-color: #333;  Dark background color 
-    color: #fff;  Light text color 
+    background-color: #333;  /*Dark background color */
+    color: #fff;  /*Light text color */
 }
 
 .card.dark-mode {
@@ -27,6 +27,53 @@ body.dark-mode {
     color: #fff; /* Button text color */
     border: none; /* Remove button border */
 }
+
+/* Dark mode styles for the navbar-toggler icon */
+/*.navbar-toggler-icon.dark-mode {
+    background-color: #fff;*/ /* White background color */
+    /*border: 1px solid #333;*/ /* Add a dark border */
+/*}
+
+.navbar-toggler-icon.dark-mode .bottom-line {
+    background-position: center 0 !important;
+ }*/
+
+/* Dark mode styles for the navbar-toggler icon */
+.navbar-toggler-icon.dark-mode {
+    background-color: #333; /* Dark background color */
+    border: 1px solid #fff; /* Add a light border */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Center both lines vertically and add space between them */
+    height: 30px; /* Adjust the total height */
+    padding: 6px 0; /* Adjust spacing between lines */
+}
+
+    .navbar-toggler-icon.dark-mode span,
+    .navbar-toggler-icon.dark-mode span::before,
+    .navbar-toggler-icon.dark-mode span::after {
+        background-color: #fff; /* White line color */
+        height: 2px; /* Adjust line thickness */
+        width: 24px; /* Adjust line length */
+        display: block;
+        content: '';
+    }
+
+        /* Additional lines */
+        .navbar-toggler-icon.dark-mode span::before,
+        .navbar-toggler-icon.dark-mode span::after {
+            margin-bottom: 4px; /* Add margin between lines */
+        }
+
+        /* Remove extra line at the bottom */
+        .navbar-toggler-icon.dark-mode span::after {
+            content: none;
+        }
+
+
+
+
 
 /* Styles for dark mode */
 body.dark-mode .navbar {
@@ -60,9 +107,6 @@ body.dark-mode .navbar {
         background-color: #333; /* Dark background color */
         z-index: 1; /* Ensure it's in front in dark mode */
     }
-
-
-
 
 /* Additional styles for top and bottom borders */
 .navbar-border {
@@ -104,7 +148,7 @@ body.dark-mode .navbar {
     .navbar-brand.dark-mode::after {
         content: '';
         display: block;
-        width: 1rem; /* Adjust the width based on your design */
+        width: 1.1rem; /* Adjust the width based on your design */
         height: 100%;
         background-color: #333; /* Black border color */
         position: absolute;
@@ -113,19 +157,19 @@ body.dark-mode .navbar {
     }
 
 
-/* Style the navigation links */
+/* Dark mode styles for navigation links */
 .navbar-nav .nav-link.dark-mode {
     color: #fff; /* Light text color */
-    padding: 10px 20px; /* Add some padding around each link */
-    background-color: #333;
+    border-radius: 5px; /* Add some rounded corners */
 }
 
-/* Style the active link */
+/* Dark mode styles for the active link */
 .navbar-nav .nav-item.active .nav-link.dark-mode {
     background-color: #007BFF; /* Background color for active link */
     color: #fff; /* Text color for active link */
     border-radius: 5px; /* Add some rounded corners */
 }
+
 
 /* Style the dropdown menu */
 .dropdown-menu.dark-mode {
@@ -159,6 +203,83 @@ body.dark-mode .navbar {
     background-color: #333; /* Dark background color */
     color: #fff; /* Light text color */
 }
- 
+
+
+
+/* Responsive styles */
+
+/*@media (max-width: 644px) {
+    body.dark-mode .navbar-brand.dark-mode {
+        font-size: 20px;
+        padding: 11px 0;*/ /* Add padding to top and bottom to fill in the white line */
+        /*padding-left: 20px;*/ /* Move EventLink Title Right */
+    /*}
+
+    body.dark-mode .form-control[type="search"].dark-mode {
+        width: 75px;*/ /* Adjust the input width for smaller screens */
+    /*}
+}*/
+
+@media (max-width: 703px) {
+    body.dark-mode .navbar-brand.dark-mode {
+        font-size: 22px;
+        padding: 11px 0; /* Add padding to top and bottom to fill in the white line */
+        padding-left: 20px; /* Move EventLink Title Right */
+    }
+
+    body.dark-mode .form-control[type="search"].dark-mode {
+        width: 100px; /* Adjust the input width for smaller screens */
+    }
+}
+
+
+    @media (max-width: 768px) {
+        /* Styles for screens smaller than 768px (e.g., tablets and phones) */
+        body.dark-mode {
+            font-size: 14px;
+        }
+
+        /* Add more responsive styles for dark mode as needed */
+    }
+
+
+    /* Add a media query for smaller screens */
+    @media (max-width: 846px) {
+        .navbar-nav .nav-link.dark-mode {
+            font-size: 14px; /* Adjust font size for smaller screens */
+            /*padding: 10px 15px;*/ /* Adjust padding for smaller screens */
+        }
+
+        .collapse.dark-mode {
+            padding: 1px 1px 1px 1px; /*Add padding to top and bottom to remove white line*/
+        }
+
+        .navbar-brand.dark-mode {
+            padding: 10px 0; /* Add padding to top and bottom to fill in the white line */
+            padding-left: 20px; /* Move title to the left */
+        }
+
+        .form-control[type="search"].dark-mode {
+            width: 150px; /* Adjust the input width for smaller screens */
+        }
+
+        .btn-outline-success[type="submit"].dark-mode {
+            padding: 3px 8px; /* Adjust padding for smaller screens */
+        }
+    }
+
+    @media (max-width: 991px) {
+
+        .navbar-brand.dark-mode {
+            padding: 10px 0; /* Add padding to top and bottom to fill in the white line */
+            padding-left: 20px; /* Move title to the left */
+        }
+
+
+        .collapse.dark-mode {
+            padding-bottom: 1px;
+        }
+    }
+}
 
 
