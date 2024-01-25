@@ -24,17 +24,6 @@ namespace EventLink.Controllers
             }
         }
 
-        /*
-        public static string GetRandomImageFromFolder()
-        {
-            var imageFolder = "wwwroot/images/concerts"; // image folder
-            var images = Directory.GetFiles(imageFolder, "*.jpg"); // retrieving all jpg images
-            Random rand = new Random();
-            var randomImage = images[rand.Next(images.Length)];
-            return "/images/concerts/" + Path.GetFileName(randomImage); // Adjust the path as necessary
-        } //Source ChatGPT RandomImageFromFolder() generation method https://chat.openai.com/
-        */
-
         public static string GetRandomImageFromFolder(string categoryCode)
         {
             string imageFolderSubPath;
