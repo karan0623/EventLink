@@ -12,7 +12,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-light bg-light dark-mode navbar-header">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light dark-mode navbar-header">
             <a class="navbar-brand" href="#">EventLink</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon">
@@ -94,83 +94,23 @@
                             handleNavbarToggle();
                         });
 
-                        // Add a resize event listener to check and close the collapsed menu on window resize
-                        window.addEventListener("resize", () => {
-                            if (window.innerWidth >= 768) {
-                                navbarCollapse.classList.remove("show");
-                            }
-                        });
-
                         // Add this code to handle dropdowns
                         document.querySelectorAll('.nav-item.dropdown').forEach(item => {
                             item.addEventListener('click', () => {
                                 item.classList.toggle('show');
                             });
+
+                            //event listener for the dropdown
+                            var dropdowns = document.querySelectorAll('.dropdown-toggle');
+                            dropdowns.forEach(function (dropdown) {
+                                dropdown.addEventListener('click', function () {
+                                    dropdown.nextElementSibling.classList.toggle('show');
+                                });
+                            });
                         });
+
                     });
                 </script>
-
-                
-                @*  <script>
-                    document.addEventListener("DOMContentLoaded", function () {
-                        const darkModeToggle = document.getElementById("darkModeToggle");
-                        const body = document.body;
-                        const navbarCollapse = document.getElementById("navbarSupportedContent");
-                        const navbarTogglerIcon = document.querySelector(".navbar-toggler");
-                        const cards = document.querySelectorAll(".card");
-                        const titles = document.querySelectorAll(".title");
-                        const cardBlocks = document.querySelectorAll(".card-block");
-                        const buttons = document.querySelectorAll(".btn");
-                        const navbar = document.querySelectorAll(".navbar");
-                        const navbarBrands = document.querySelectorAll(".navbar-brand");
-                        const navLinks = document.querySelectorAll(".nav-link");
-                        const dropdownMenus = document.querySelectorAll(".dropdown-menu");
-                        const searchInputs = document.querySelectorAll(".form-control[type='search']");
-                        const searchButtons = document.querySelectorAll(".btn-outline-success[type='submit']");
-                        const navbarTogglerIcons = document.querySelectorAll(".navbar-toggler-icon");
-                        const darkModeNavbarCollapse = document.querySelector(".collapse");
-                        const header = document.querySelector("header");
-
-        // Function to toggle dark mode
-        const toggleDarkMode = () => {
-            body.classList.toggle("dark-mode");
-            cards.forEach(card => card.classList.toggle("dark-mode"));
-            titles.forEach(title => title.classList.toggle("dark-mode"));
-            cardBlocks.forEach(block => block.classList.toggle("dark-mode"));
-            buttons.forEach(button => button.classList.toggle("dark-mode"));
-            navbar.forEach(navbar => navbar.classList.toggle("dark-mode"));
-            navbarBrands.forEach(brand => brand.classList.toggle("dark-mode"));
-            navLinks.forEach(link => link.classList.toggle("dark-mode"));
-            dropdownMenus.forEach(menu => menu.classList.toggle("dark-mode"));
-            searchInputs.forEach(input => input.classList.toggle("dark-mode"));
-            searchButtons.forEach(button => button.classList.toggle("dark-mode"));
-            navbarTogglerIcons.forEach(icon => icon.classList.toggle("dark-mode"));
-            darkModeNavbarCollapse.classList.toggle("dark-mode"); // Toggle dark mode for the .navbar-collapse
-            header.classList.toggle("dark-mode");
-        };
-
-        // Add a click event listener to the dark mode toggle button
-        darkModeToggle.addEventListener("click", () => {
-            toggleDarkMode();
-        });
-        //event listener for the dropdown
-        var dropdowns = document.querySelectorAll('.dropdown-toggle');
-        dropdowns.forEach(function (dropdown) {
-            dropdown.addEventListener('click', function () {
-                dropdown.nextElementSibling.classList.toggle('show');
-            });
-        });
-    });
-</script>
-
-                        // Add a resize event listener to check and close the collapsed menu on window resize
-                        window.addEventListener("resize", () => {
-                            if (window.innerWidth >= 768) {
-                                navbarCollapse.classList.remove("show");
-                            }
-                        });
-                    });
-                </script>  *@
 
                 <form class="form-inline my-2 my-lg-0">
                     <div class="input-group">
@@ -185,23 +125,15 @@
         </nav>
         
     </header>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-8">
+    <div class="container">
                 <main role="main" class="pb-3">
                     @RenderBody()
                 </main>
-            </div>
-            <div class="col-md-4">
-                    <!-- Additional content or sidebar goes here -->
-            </div>
-        </div>
     </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @* <script src="~/js/dark_mode.js"></script> *@
 
 
     @await RenderSectionAsync("Scripts", required: false)

@@ -28,15 +28,10 @@ body.dark-mode {
     border: none; /* Remove button border */
 }
 
-/* Dark mode styles for the navbar-toggler icon */
-/*.navbar-toggler-icon.dark-mode {
-    background-color: #fff;*/ /* White background color */
-    /*border: 1px solid #333;*/ /* Add a dark border */
-/*}
-
-.navbar-toggler-icon.dark-mode .bottom-line {
-    background-position: center 0 !important;
- }*/
+.bg-light {
+    --bs-bg-opacity: 0; /*Makes the original space where the navbar was appear black instead of the original background of white*/
+    background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity)) !important;
+}
 
 /* Dark mode styles for the navbar-toggler icon */
 .navbar-toggler-icon.dark-mode {
@@ -70,10 +65,6 @@ body.dark-mode {
         .navbar-toggler-icon.dark-mode span::after {
             content: none;
         }
-
-
-
-
 
 /* Styles for dark mode */
 body.dark-mode .navbar {
@@ -126,8 +117,6 @@ body.dark-mode .navbar {
     background-color: #333; /* Dark background color */
 }
 
-
-
 /* Adjust the navbar background and text color */
 .navbar-header.dark-mode {
     background-color: #333; /* Dark background color */
@@ -156,7 +145,6 @@ body.dark-mode .navbar {
         right: -1rem; /* Extend the border to the right by 1 rem */
     }
 
-
 /* Dark mode styles for navigation links */
 .navbar-nav .nav-link.dark-mode {
     color: #fff; /* Light text color */
@@ -173,16 +161,16 @@ body.dark-mode .navbar {
 
 /* Style the dropdown menu */
 .dropdown-menu.dark-mode {
-    background-color: #333; /* Dark background color */
-    color: #fff; /* Light text color */
+    background-color: #333;  /*Dark background color */
+    color: #fff;  /*Light text color */
 }
 
 /* Style the search input */
 .form-control[type="search"].dark-mode {
     width: 200px; /* Adjust the input width */
     margin-right: 10px; /* Add right margin to the search input */
-    background-color: #444; /* Dark background color */
-    color: #fff; /* Light text color */
+    background-color: #FFF; /* Dark background color */
+    color: #000; /* Light text color */
     border: 1px solid #ddd; /* Add a border */
 }
 
@@ -208,18 +196,6 @@ body.dark-mode .navbar {
 
 /* Responsive styles */
 
-/*@media (max-width: 644px) {
-    body.dark-mode .navbar-brand.dark-mode {
-        font-size: 20px;
-        padding: 11px 0;*/ /* Add padding to top and bottom to fill in the white line */
-        /*padding-left: 20px;*/ /* Move EventLink Title Right */
-    /*}
-
-    body.dark-mode .form-control[type="search"].dark-mode {
-        width: 75px;*/ /* Adjust the input width for smaller screens */
-    /*}
-}*/
-
 @media (max-width: 703px) {
     body.dark-mode .navbar-brand.dark-mode {
         font-size: 22px;
@@ -228,7 +204,7 @@ body.dark-mode .navbar {
     }
 
     body.dark-mode .form-control[type="search"].dark-mode {
-        width: 100px; /* Adjust the input width for smaller screens */
+        width: 200px; /* Adjust the input width for smaller screens */
     }
 }
 
@@ -259,9 +235,9 @@ body.dark-mode .navbar {
             padding-left: 20px; /* Move title to the left */
         }
 
-        .form-control[type="search"].dark-mode {
-            width: 150px; /* Adjust the input width for smaller screens */
-        }
+        /*.form-control[type="search"].dark-mode {
+            width: 150px;*/ /* Adjust the input width for smaller screens */
+        /*}*/
 
         .btn-outline-success[type="submit"].dark-mode {
             padding: 3px 8px; /* Adjust padding for smaller screens */
@@ -280,6 +256,5 @@ body.dark-mode .navbar {
             padding-bottom: 1px;
         }
     }
-}
 
 

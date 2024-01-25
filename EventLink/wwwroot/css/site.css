@@ -48,21 +48,13 @@ body {
 
 /* Style the navigation links */
 .navbar-nav .nav-link {
-    color: #333; /* Text color */
     padding: 10px 20px; /* Add some padding around each link */
-}
-
-/* Style the active link */
-.navbar-nav .nav-item.active .nav-link {
-    background-color: #007BFF; /* Background color for active link */
-    color: #fff; /* Text color for active link */
-    border-radius: 5px; /* Add some rounded corners */
 }
 
 /* Style the dropdown menu */
 .dropdown-menu {
     background-color: #fff; /* Background color */
-    border: 1px solid #ddd; /* Add a border */
+    color: #fff;
 }
 
 /* Style the form in the navbar */
@@ -86,26 +78,11 @@ body {
 
 /* Style the toggle button on small screens */
 .navbar-toggler-icon {
-    background-color: #333; /* Toggle button color */
+    background-color: #FFF; /* Toggle button color */
+    border: 2px solid #808080;
 }
 
-
-
-
 /* Responsive styles */
-
-/*@media (max-width: 644px) {
-    body .navbar-brand.dark-mode {
-        font-size: 20px;
-        padding: 11px 0;*/ /* Add padding to top and bottom to fill in the white line */
-        /*padding-left: 20px;*/ /* Move EventLink Title Right */
-    /*}
-
-    body .form-control[type="search"].dark-mode {
-        width: 75px;*/ /* Adjust the input width for smaller screens */
-    /*}
-}*/
-
 
 @media (max-width: 703px) {
 
@@ -114,10 +91,8 @@ body {
     }    
     
     body .form-control[type="search"] {
-        width: 100px; /* Adjust the input width for smaller screens */
+        width: 200px; /* Adjust the input width for smaller screens */
     }
-
-
 }
 
     @media (max-width: 768px) {
@@ -135,9 +110,9 @@ body {
             font-size: 14px; /* Adjust font size for smaller screens */
         }
 
-        .form-control[type="search"] {
-            width: 150px; /* Adjust the input width for smaller screens */
-        }
+        /*.form-control[type="search"] {
+            width: 150px;*/ /* Adjust the input width for smaller screens */
+        /*}*/
 
         .btn-outline-success[type="submit"] {
             padding: 3px 8px; /* Adjust padding for smaller screens */
