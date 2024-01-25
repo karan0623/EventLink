@@ -5,15 +5,15 @@
 }
 @*This was helped with the code for the bootstrap cards https://codepen.io/fernstedt/pen/mxGzor*@
 
-
-
-
 @foreach (var item in Model)
 {
+    string randomImageUrl = EventLink.Controllers.HomeController.GetRandomImageFromFolder(item.Category);
     <div class="card float-right">
         <div class="row">
             <div class="col-sm-5">
-                <img class="d-block" src="@item.DisplayUrl" alt="" style="width: 500px; height: auto;">
+                <img class="d-block" src="@item.DisplayUrl" alt=""
+                     style="width: 500px; height: auto;"
+                     onerror="this.onerror=null; this.src='@randomImageUrl';">
             </div>
             <div class="col-md-7 px-3">
                 <div class="card-block px-6">
@@ -27,72 +27,6 @@
         </div>
     </div>
 }
-
-
-
-
-<div class="card float-right">
-    <div class="row">
-        <div class="col-sm-5">
-            <img class="d-block" src="https://picsum.photos/450/300?image=1072" alt="">
-        </div>
-        <div class="col-md-7 px-3">
-            <div class="card-block px-6">
-                <h4 class="card-title">Horizontal Card with Carousel - Bootstrap 4 </h4>
-                <p class="card-text">
-                    The Carousel code can be replaced with an img src, no problem. The added CSS brings shadow to the card and some adjustments to the prev/next buttons and the indicators is rounded now. As in Bootstrap 3
-                </p>
-                <p class="card-text">Made for usage, commonly searched for. Fork, like and use it. Just move the carousel div above the col containing the text for left alignment of images</p>
-                <br>
-                <a href="#" class="mt-auto btn btn-primary  ">Read More</a>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-
-    <div class="card float-right">
-        <div class="row">
-            <div class="col-sm-5">
-            <img class="d-block" src="https://picsum.photos/450/300?image=855" alt="">
-            </div>
-        <div class="col-md-7 px-3">
-            <div class="card-block px-6">
-                <h4 class="card-title">Horizontal Card with Carousel - Bootstrap 4 </h4>
-                <p class="card-text">
-                    The Carousel code can be replaced with an img src, no problem. The added CSS brings shadow to the card and some adjustments to the prev/next buttons and the indicators is rounded now. As in Bootstrap 3
-                </p>
-                <p class="card-text">Made for usage, commonly searched for. Fork, like and use it. Just move the carousel div above the col containing the text for left alignment of images</p>
-                <br>
-                <a href="#" class="mt-auto btn btn-primary  ">Read More</a>
-            </div>
-        </div>
-
-        </div>
-    </div>
-
-<div class="card float-right">
-    <div class="row">
-        <div class="col-sm-5">
-            <img class="d-block" src="https://instagram.fsof9-1.fna.fbcdn.net/v/t51.2885-15/387267408_294032413479027_6755488847107510124_n.jpg?stp=dst-jpg_e35_s1080x1080&_nc_ht=instagram.fsof9-1.fna.fbcdn.net&_nc_cat=103&_nc_ohc=DNa5HgHZ6hYAX-0Gjie&edm=AP_V10EBAAAA&ccb=7-5&oh=00_AfAnuFZZv2wGnau9Ea7BMkAlrpGsrqp6M30p8mNECXcx-A&oe=652AE603&_nc_sid=2999b8" alt="">
-        </div>
-        <div class="col-md-7 px-3">
-            <div class="card-block px-6">
-                <h4 class="card-title">Horizontal Card with Carousel - Bootstrap 4 </h4>
-                <p class="card-text">
-                    The Carousel code can be replaced with an img src, no problem. The added CSS brings shadow to the card and some adjustments to the prev/next buttons and the indicators is rounded now. As in Bootstrap 3
-                </p>
-                <p class="card-text">Made for usage, commonly searched for. Fork, like and use it. Just move the carousel div above the col containing the text for left alignment of images</p>
-                <br>
-                <a href="#" class="mt-auto btn btn-primary  ">Read More</a>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-
 
 <br>
 <br>
