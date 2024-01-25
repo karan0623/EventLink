@@ -19,10 +19,13 @@ namespace EventLink.Models
         
         public string OwnerUsername { get; set; }
 
+        public string Category { get; set; }
+
+
 
         public Uri? Url { get; set; }
 
-        public string Category { get; set; }
+
 
     }
 }
