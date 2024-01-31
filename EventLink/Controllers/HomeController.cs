@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Net;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using System.Linq;
+using AutoMapper;
 
 namespace EventLink.Controllers
 {
@@ -19,21 +20,46 @@ namespace EventLink.Controllers
             _logger = logger;
         }
 
-      public IActionResult Index(string category = "All")
+        
+        public IActionResult Index(string category = "All")
         {
-            using (var context = new InstagramPostsEventsContext())
+            using (var instagramContext = new InstagramPostsEventsContext())
+            using (var facebookContext = new FacebookPostsEventsContext())
             {
-                IQueryable<InstagramPostsEvents> query = context.InstagramPostsEvents;
+                IQueryable<InstagramPostsEvents> instagramQuery = instagramContext.InstagramPostsEvents;
+                IQueryable<FacebookPostsEvents> facebookQuery = facebookContext.FacebookPostsEvents;
 
                 if (category != "All")
                 {
-                    query = query.Where(e => e.Category == category);
+                    instagramQuery = instagramQuery.Where(e => e.Category == category);
+                    facebookQuery = facebookQuery.Where(e => e.Category == category);
                 }
 
-                List<InstagramPostsEvents> data = query.ToList();
-                return View(data);
+                List<InstagramPostsEvents> instagramData = instagramQuery.ToList();
+                List<FacebookPostsEvents> facebookData = facebookQuery.ToList();
+
+                var config = new MapperConfiguration(cfg =>
+                {
+                    cfg.CreateMap<InstagramPostsEvents, InstagramPostsEvents>();
+                    cfg.CreateMap<FacebookPostsEvents, FacebookPostsEvents>();
+                    // Add other mappings as needed
+                });
+
+                var mapper = config.CreateMapper();
+
+                var combinedViewModel = new CombinedViewModel
+                {
+                    InstagramData = mapper.Map<List<InstagramPostsEvents>>(instagramData),
+                    FacebookData = mapper.Map<List<FacebookPostsEvents>>(facebookData)
+                };
+
+                return View(combinedViewModel);
             }
         }
+
+
+
+
 
         public static string GetRandomImageFromFolder(string categoryCode)
         {
