@@ -32,6 +32,15 @@ body {
     margin-top: auto;
 }
 
+.card-text {
+    max-height: 3em; /* Adjust this value based on the desired number of lines */
+    overflow: hidden;
+}
+
+    .card-text.expanded {
+        max-height: none; /* Allow unlimited height when expanded */
+    }
+
 /* Style the navigation bar */
 .navbar {
     background-color: #fff; /* Background color */

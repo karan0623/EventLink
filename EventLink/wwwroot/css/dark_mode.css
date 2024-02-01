@@ -20,6 +20,16 @@ body.dark-mode {
     background-color: #333; /* Dark card background color */
     color: #fff; /* Light text color */
 }
+
+.card-text.dark-mode {
+    max-height: 3em; /* Adjust this value based on the desired number of lines */
+    overflow: hidden;
+}
+
+.card-text.expanded.dark-mode {
+     max-height: none; /* Allow unlimited height when expanded */
+    }
+
     
 .btn.dark-mode {
     margin-top: auto;
