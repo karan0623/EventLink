@@ -22,18 +22,17 @@ body.dark-mode {
 }
 
 .card-text.dark-mode {
-    max-height: 3em; /* Adjust this value based on the desired number of lines */
+    max-height: 4.5em; /* Adjust this value based on the desired number of lines */
     overflow: hidden;
 }
 
 .card-text.expanded.dark-mode {
      max-height: none; /* Allow unlimited height when expanded */
     }
-
     
 .btn.dark-mode {
     margin-top: auto;
-    background-color: #28A745; /* Button background color */
+    /*background-color: #28A745;*/ /* Button background color */
     color: #fff; /* Button text color */
     border: none; /* Remove button border */
 }

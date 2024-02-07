@@ -40,14 +40,16 @@
                      onerror="this.onerror=null; this.src='@randomImageUrl';">
             </div>
             <div class="col-sm-12 col-md-7">
-                <div class="card-body">
+                <div class="card-block">
                     <h4 class="card-title">@item.OwnerFullName (@item.OwnerUsername)</h4>
                     <p class="card-text">@item.Caption</p>
-                    <button class=""btn btn-link expand-button">Read More</button>
                 </div>
-                <div class="card-block">
+                <div class="card-text d-flex justify-content-end">
+                    <button class="btn btn-link expand-button">Read More</button>
+                </div>
+                <br>
                     <a href="@item.Url" class="btn btn-primary">Go to Post</a>
-                </div>
+               
             </div>
         </div>
     </div>

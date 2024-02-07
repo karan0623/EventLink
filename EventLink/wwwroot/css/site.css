@@ -33,7 +33,7 @@ body {
 }
 
 .card-text {
-    max-height: 3em; /* Adjust this value based on the desired number of lines */
+    max-height: 4.5em; /* Adjust this value based on the desired number of lines */
     overflow: hidden;
 }
 

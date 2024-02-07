@@ -44,6 +44,28 @@
 
                 <script>
                     document.addEventListener("DOMContentLoaded", function () {
+
+                        function toggleCardText(card) {
+                            const cardText = card.querySelector('.card-text');
+                            const expandButton = card.querySelector('.expand-button');
+
+                            cardText.classList.toggle('expanded');
+
+                            if (cardText.classList.contains('expanded')) {
+                                expandButton.innerText = 'Read Less';
+                            } else {
+                                expandButton.innerText = 'Read More';
+                            }
+                        }
+
+                        // Add click event listeners to each card's expand button
+                        document.querySelectorAll('.expand-button').forEach(function (button) {
+                            button.addEventListener('click', function () {
+                                const card = button.closest('.card');
+                                toggleCardText(card);
+                            });
+                        });
+
                         const darkModeToggle = document.getElementById("darkModeToggle");
                         const body = document.body;
                         const navbarCollapse = document.getElementById("navbarSupportedContent");
@@ -110,36 +132,11 @@
                                 });
                             });
                         });
-
                     });
+                    
                 </script>
 
                 @* Script for expand button on dropdown for card text, parts of this were created with ChatGPT to help refine this functionality *@
-                <script>
-                    document.addEventListener("DOMContentLoaded", function () {
-                        // Function to toggle card text expansion
-                        function toggleCardText(card) {
-                            const cardText = card.querySelector('.card-text');
-                            const expandButton = card.querySelector('.expand-button');
-
-                            cardText.classList.toggle('expanded');
-
-                            if (cardText.classList.contains('expanded')) {
-                                expandButton.innerText = 'Read Less';
-                            } else {
-                                expandButton.innerText = 'Read More';
-                            }
-                        }
-
-                        // Add click event listeners to each card's expand button
-                        document.querySelectorAll('.expand-button').forEach(function (button) {
-                            button.addEventListener('click', function () {
-                                const card = button.closest('.card');
-                                toggleCardText(card);
-                            });
-                        });
-                    });
-                </script>
 
 
                 <form class="form-inline my-2 my-lg-0">
