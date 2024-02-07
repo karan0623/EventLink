@@ -1,35 +1,13 @@
-﻿@model List<EventLink.Models.InstagramPostsEvents>
+﻿@model CombinedViewModel
 @{
     ViewData["Title"] = "Home Page";
     
 }
 @*This was helped with the code for the bootstrap cards https://codepen.io/fernstedt/pen/mxGzor*@
 
-@* @foreach (var item in Model)
-{
-    string randomImageUrl = EventLink.Controllers.HomeController.GetRandomImageFromFolder(item.Category);
-    <div class="card float-right">
-        <div class="row">
-            <div class="col-sm-5">
-                <img class="d-block" src="@item.DisplayUrl" alt=""
-                     style="width: 500px; height: auto;"
-                     onerror="this.onerror=null; this.src='@randomImageUrl';">
-            </div>
-            <div class="col-md-7 px-3">
-                <div class="card-block px-6">
-                    <h4 class="card-title">@item.OwnerFullName (@item.OwnerUsername)</h4>
 
-                    <p class="card-text">@item.Caption</p>
-                    <br>
-                    <a href="@item.Url" class="mt-auto btn btn-primary">Go to Post</a>
-                </div>
-            </div>
-        </div>
-    </div>
-} *@
+@foreach (var item in Model.InstagramData)
 
-
-@foreach (var item in Model)
 {
     string randomImageUrl = EventLink.Controllers.HomeController.GetRandomImageFromFolder(item.Category);
     <div class="card">
@@ -53,6 +31,34 @@
             </div>
         </div>
     </div>
+}
+
+
+@foreach (var item in Model.FacebookData)
+{
+    string randomImageUrl = EventLink.Controllers.HomeController.GetRandomImageFromFolder(item.Category);
+    <div class="card">
+        <div class="row">
+            <div class="col-sm-12 col-md-5">
+                <img class="card-img-top" src="@item.Url" alt=""
+                     style="width: 100%; height: auto;"
+                     onerror="this.onerror=null; this.src='@randomImageUrl';">
+            </div>
+            <div class="col-sm-12 col-md-7">
+                <div class="card-block">
+                    <h4 class="card-title">@item.PageName</h4>
+                    <p class="card-text">@item.Text</p>
+                </div>
+                <div class="card-text d-flex justify-content-end">
+                    <button class="btn btn-link expand-button">Read More</button>
+                </div>
+                <br>
+                    <a href="@item.Url" class="btn btn-primary">Go to Post</a>
+               
+            </div>
+        </div>
+    </div>
+
 }
 
 
