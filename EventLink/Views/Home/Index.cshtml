@@ -1,4 +1,5 @@
-﻿@model CombinedViewModel
+﻿@using Newtonsoft.Json;
+@model CombinedViewModel
 @{
     ViewData["Title"] = "Home Page";
     
@@ -60,6 +61,37 @@
     </div>
 
 }
+
+@foreach (var item in Model.TwitterData)
+{
+    string randomImageUrl = EventLink.Controllers.HomeController.GetRandomImageFromFolder(item.Category);
+
+    
+    var nameData = JsonConvert.DeserializeObject<NameData>(item.Name);
+    string extractedName = nameData?.Name ?? "";
+
+    <div class="card">
+        <div class="row">
+            <div class="col-sm-12 col-md-5">
+                <img class="card-img-top" src="@item.Url" alt=""
+                     style="width: 100%; height: auto;"
+                     onerror="this.onerror=null; this.src='@randomImageUrl';">
+            </div>
+            <div class="col-sm-12 col-md-7">
+                <div class="card-block">
+                    <h4 class="card-title">@extractedName</h4> 
+                    <p class="card-text">@item.FullText</p>
+                </div>
+                <div class="card-text d-flex justify-content-end">
+                    <button class="btn btn-link expand-button">Read More</button>
+                </div>
+                <br>
+                <a href="@item.Url" class="btn btn-primary">Go to Post</a>
+            </div>
+        </div>
+    </div>
+}
+
 
 
 <br>
