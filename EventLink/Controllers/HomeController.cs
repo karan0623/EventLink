@@ -59,8 +59,6 @@ namespace EventLink.Controllers
 
 
 
-
-
         public static string GetRandomImageFromFolder(string categoryCode)
         {
             string imageFolderSubPath;
