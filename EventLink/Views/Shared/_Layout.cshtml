@@ -70,6 +70,7 @@
 
                         const darkModeToggle = document.getElementById("darkModeToggle");
                         const body = document.body;
+                        const dropdownButton = document.getElementById("navbarScrollingDropdown");
                         const navbarCollapse = document.getElementById("navbarSupportedContent");
                         const navbarTogglerIcon = document.querySelector(".navbar-toggler");
                         const cards = document.querySelectorAll(".card");
@@ -126,13 +127,21 @@
                                 item.classList.toggle('show');
                             });
 
-                            //event listener for the dropdown
-                            var dropdowns = document.querySelectorAll('.dropdown-toggle');
-                            dropdowns.forEach(function (dropdown) {
-                                dropdown.addEventListener('click', function () {
-                                    dropdown.nextElementSibling.classList.toggle('show');
-                                });
+   
+                        // Add click event listener for the dropdown button
+                        dropdownButton.addEventListener('click', (event) => {
+                            event.stopPropagation(); // Prevent Bootstrap from immediately closing the dropdown
+                                 dropdownMenu.classList.toggle('show');
                             });
+
+                        // Add click event listener to close the dropdown when clicking outside
+                        document.addEventListener('click', (event) => {
+                            if (!event.target.matches('.dropdown-toggle')) {
+                                 dropdownMenu.classList.remove('show');
+                                }
+                            });
+
+                         
                         });
                     });
                     
