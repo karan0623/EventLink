@@ -32,9 +32,9 @@ body.dark-mode {
     
 .btn.dark-mode {
     margin-top: auto;
-    /*background-color: #28A745;*/ /* Button background color */
-    color: #fff; /* Button text color */
-    border: none; /* Remove button border */
+    /*background-color: #28A745;  Button background color */
+    color: #fff;  /*Button text color */
+    border: none;  /*Remove button border*/ 
 }
 
 .bg-light {
