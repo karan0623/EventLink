@@ -8,7 +8,7 @@ $(document).ready(function () {
         event.preventDefault(); // Prevent the form from submitting
 
         // Get the search input value
-        var searchTerm = $("#searchInput").val().toLowerCase();
+        var searchTerm = $(".form-control[type='search']").val().toLowerCase();
 
         // Perform the search logic
         $(".card").each(function () {
@@ -19,9 +19,23 @@ $(document).ready(function () {
             } else {
                 $(this).hide();
             }
+
+            $(".card").each(function () {
+                var cardText = $(this).find('.card-title').text().toLowerCase();
+
+                if (cardText.includes(searchTerm)) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
         });
     });
 });
+
+
+
+
 
 
 
