@@ -1,15 +1,16 @@
-﻿using Microsoft.AspNetCore.Authorization.Infrastructure;
-using Microsoft.AspNetCore.Mvc.ApplicationParts;
-//using Moq;
-//using Xunit;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
-namespace EventLink.Models.Unit_Tests
+namespace UnitTestProject
 {
-
     [TestClass]
-    public class Test1
+    public class UnitTest1
     {
+        [TestMethod]
+        public void TestMethod1()
+        {
+
+        }
 
         [TestMethod]
         public void TestingUnitTests()
@@ -26,6 +27,5 @@ namespace EventLink.Models.Unit_Tests
 
             Assert.IsTrue(x1 == y1);
         }
-
     }
 }

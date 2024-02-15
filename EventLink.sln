@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventLink", "EventLink\EventLink.csproj", "{19A937F1-A72B-447B-BC4D-F4421B9E0EFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventLink", "EventLink\EventLink.csproj", "{19A937F1-A72B-447B-BC4D-F4421B9E0EFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{F26B3203-B9FB-4A23-ACC1-1C238BE3655A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{19A937F1-A72B-447B-BC4D-F4421B9E0EFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19A937F1-A72B-447B-BC4D-F4421B9E0EFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19A937F1-A72B-447B-BC4D-F4421B9E0EFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F26B3203-B9FB-4A23-ACC1-1C238BE3655A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F26B3203-B9FB-4A23-ACC1-1C238BE3655A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F26B3203-B9FB-4A23-ACC1-1C238BE3655A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F26B3203-B9FB-4A23-ACC1-1C238BE3655A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
