@@ -67,21 +67,42 @@ namespace EventLink.Controllers
 
 
 
-        public static string GetRandomImageFromFolder(string categoryCode)
+        public static string GetRandomImageFromFolder(string categoryCode, string subcategoryCode)
         {
             string imageFolderSubPath;
 
             if (categoryCode.ToLower() == "r")
             {
-                imageFolderSubPath = "restaurants";
+                if (subcategoryCode.ToLower() == "market" || subcategoryCode.ToLower() == "bars" || subcategoryCode.ToLower() == "fancy")
+                {
+                    imageFolderSubPath = Path.Combine("restaurants", subcategoryCode.ToLower());
+                }
+                else
+                {
+                    imageFolderSubPath = "restaurants/default";
+                }
             }
             else if (categoryCode.ToLower() == "s")
             {
-                imageFolderSubPath = "sports";
+                if (subcategoryCode.ToLower() == "bearcats" || subcategoryCode.ToLower() == "bengals" || subcategoryCode.ToLower() == "reds")
+                {
+                    imageFolderSubPath = Path.Combine("sports", subcategoryCode.ToLower());
+                }
+                else
+                {
+                    imageFolderSubPath = "sports/default";
+                }
             }
             else if (categoryCode.ToLower() == "c")
             {
-                imageFolderSubPath = "concerts";
+                if (subcategoryCode.ToLower() == "venue" || subcategoryCode.ToLower() == "symphony")
+                {
+                    imageFolderSubPath = Path.Combine("concerts", subcategoryCode.ToLower());
+                }
+                else
+                {
+                    imageFolderSubPath = "concerts/default";
+                }
             }
             else
             {
@@ -102,6 +123,7 @@ namespace EventLink.Controllers
 
             return relativePath.Replace('\\', '/'); // Convert to web-friendly path
         }
+
 
         public IActionResult Privacy()
         {
