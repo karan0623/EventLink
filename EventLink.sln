@@ -5,7 +5,7 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventLink", "EventLink\EventLink.csproj", "{19A937F1-A72B-447B-BC4D-F4421B9E0EFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProjects", "TestProjects\TestProjects.csproj", "{2EF44CB8-6E1E-4842-8F2B-6C27D75555D9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventLinkTests", "EventLinkTests\EventLinkTests.csproj", "{3C0791D5-93A0-4CD4-BB12-C5AAE3F199BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{19A937F1-A72B-447B-BC4D-F4421B9E0EFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19A937F1-A72B-447B-BC4D-F4421B9E0EFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19A937F1-A72B-447B-BC4D-F4421B9E0EFC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2EF44CB8-6E1E-4842-8F2B-6C27D75555D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2EF44CB8-6E1E-4842-8F2B-6C27D75555D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2EF44CB8-6E1E-4842-8F2B-6C27D75555D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2EF44CB8-6E1E-4842-8F2B-6C27D75555D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C0791D5-93A0-4CD4-BB12-C5AAE3F199BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C0791D5-93A0-4CD4-BB12-C5AAE3F199BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C0791D5-93A0-4CD4-BB12-C5AAE3F199BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C0791D5-93A0-4CD4-BB12-C5AAE3F199BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
