@@ -62,27 +62,57 @@ namespace EventLink.Controllers
                 return View(combinedViewModel);
             }
         }
-
-
-
-
-
-        public static string GetRandomImageFromFolder(string categoryCode)
+        
+        public static string GetRandomImageFromFolder(string categoryCode, string subcategoryCode)
         {
             string imageFolderSubPath;
 
+            // Restaurant Check: 
             if (categoryCode.ToLower() == "r")
             {
-                imageFolderSubPath = "restaurants";
+                // Checking if post falls under any of the subcategories
+                if (subcategoryCode.ToLower() == "market" || subcategoryCode.ToLower() == "bars" || subcategoryCode.ToLower() == "fancy")
+                {
+                    // Then, pull image from that subcategory
+                    imageFolderSubPath = Path.Combine("restaurants", subcategoryCode.ToLower());
+                }
+                else
+                {
+                    // Then, pull image from default
+                    imageFolderSubPath = "restaurants/default";
+                }
             }
+            // Sports Check: 
             else if (categoryCode.ToLower() == "s")
             {
-                imageFolderSubPath = "sports";
+                // Checking if post falls under any of the subcategories
+                if (subcategoryCode.ToLower() == "bearcats" || subcategoryCode.ToLower() == "bengals" || subcategoryCode.ToLower() == "reds")
+                {
+                    // Then, pull image from that subcategory
+                    imageFolderSubPath = Path.Combine("sports", subcategoryCode.ToLower());
+                }
+                else
+                {   
+                    // Then, pull image from default
+                    imageFolderSubPath = "sports/default";
+                }
             }
+            // Concerts Check: 
             else if (categoryCode.ToLower() == "c")
             {
-                imageFolderSubPath = "concerts";
+                // Checking if post falls under any of the subcategories
+                if (subcategoryCode.ToLower() == "venue" || subcategoryCode.ToLower() == "symphony")
+                {
+                    // Then, pull image from that subcategory
+                    imageFolderSubPath = Path.Combine("concerts", subcategoryCode.ToLower());
+                }
+                else
+                {
+                    // Then, pull image from default
+                    imageFolderSubPath = "concerts/default";
+                }
             }
+            // If no category assigned
             else
             {
                 imageFolderSubPath = "default"; // default folder for unrecognized categories
@@ -96,12 +126,14 @@ namespace EventLink.Controllers
                 return "/images/default/default-image.jpg"; // Path to a default image if no images are found
             }
 
+            // Assign Random Image with no duplicates
             Random rand = new Random();
             var randomImage = images[rand.Next(images.Length)];
             var relativePath = Path.Combine("/images", imageFolderSubPath, Path.GetFileName(randomImage));
 
             return relativePath.Replace('\\', '/'); // Convert to web-friendly path
         }
+
 
         public IActionResult Privacy()
         {

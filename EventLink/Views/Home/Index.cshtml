@@ -10,7 +10,7 @@
 @foreach (var item in Model.InstagramData)
 
 {
-    string randomImageUrl = EventLink.Controllers.HomeController.GetRandomImageFromFolder(item.Category);
+    string randomImageUrl = EventLink.Controllers.HomeController.GetRandomImageFromFolder(item.Category, item.Subcategory); // pass item.subCategory
     <div class="card">
         <div class="row">
             <div class="col-sm-12 col-md-5">
@@ -34,68 +34,6 @@
     </div>
 }
 
-
-@foreach (var item in Model.FacebookData)
-{
-    string randomImageUrl = EventLink.Controllers.HomeController.GetRandomImageFromFolder(item.Category);
-    <div class="card">
-        <div class="row">
-            <div class="col-sm-12 col-md-5">
-                <img class="card-img-top" src="@item.Url" alt=""
-                     style="width: 100%; height: auto;"
-                     onerror="this.onerror=null; this.src='@randomImageUrl';">
-            </div>
-            <div class="col-sm-12 col-md-7">
-                <div class="card-block">
-                    <h4 class="card-title">@item.PageName</h4>
-                    <p class="card-text">@item.Text</p>
-                </div>
-                <div class="card-text d-flex justify-content-end">
-                    <button class="btn btn-link expand-button">Read More</button>
-                </div>
-                <br>
-                    <a href="@item.Url" class="btn btn-primary">Go to Post</a>
-               
-            </div>
-        </div>
-    </div>
-
-}
-
-@foreach (var item in Model.TwitterData)
-{
-    string randomImageUrl = EventLink.Controllers.HomeController.GetRandomImageFromFolder(item.Category);
-
-    
-    var nameData = JsonConvert.DeserializeObject<NameData>(item.Name);
-    string extractedName = nameData?.Name ?? "";
-
-    <div class="card">
-        <div class="row">
-            <div class="col-sm-12 col-md-5">
-                <img class="card-img-top" src="@item.Url" alt=""
-                     style="width: 100%; height: auto;"
-                     onerror="this.onerror=null; this.src='@randomImageUrl';">
-            </div>
-            <div class="col-sm-12 col-md-7">
-                <div class="card-block">
-                    <h4 class="card-title">@extractedName</h4> 
-                    <p class="card-text">@item.FullText</p>
-                </div>
-                <div class="card-text d-flex justify-content-end">
-                    <button class="btn btn-link expand-button">Read More</button>
-                </div>
-                <br>
-                <a href="@item.Url" class="btn btn-primary">Go to Post</a>
-            </div>
-        </div>
-    </div>
-}
-
-
-
-<br>
-<br>
 
 <!--https://instagram.fsof9-1.fna.fbcdn.net/v/t51.2885-15/387267408_294032413479027_6755488847107510124_n.jpg?stp=dst-jpg_e35_s1080x1080&_nc_ht=instagram.fsof9-1.fna.fbcdn.net&_nc_cat=103&_nc_ohc=DNa5HgHZ6hYAX-0Gjie&edm=AP_V10EBAAAA&ccb=7-5&oh=00_AfAnuFZZv2wGnau9Ea7BMkAlrpGsrqp6M30p8mNECXcx-A&oe=652AE603&_nc_sid=2999b8-->
 <!--https://picsum.photos/450/300?image=355-->
