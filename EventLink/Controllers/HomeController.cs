@@ -62,10 +62,6 @@ namespace EventLink.Controllers
                 return View(combinedViewModel);
             }
         }
-
-
-
-
         
         public static string GetRandomImageFromFolder(string categoryCode, string subcategoryCode)
         {
