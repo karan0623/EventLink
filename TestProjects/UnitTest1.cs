@@ -2,17 +2,11 @@ using EventLink.Controllers;
 
 namespace TestProjects
 {
-    [TestClass]
-    public class UnitTest1
-    {
-        [TestMethod]
-        public void TestMethod1()
-        {
-        }
-    }
+    
     [TestClass]
     public class HomeControllerTests
     {
+
         [TestMethod]
         public void GetRandomImageFromFolder_RestaurantsCategory_ReturnsValidImagePath()
         {
