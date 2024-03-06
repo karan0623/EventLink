@@ -1,6 +1,6 @@
 /*Parts of this code ChatGPT was used in order to help with the functionality*/
 body {
-    background-color: #C8C8C8;
+    background-color: #dce0d9;
 }
 
 .title {
@@ -9,7 +9,7 @@ body {
 }
 
 header {
-    background-color: #E55B5B;
+    background-color: #ead7c3;
 }
 
 .card-block {
@@ -27,7 +27,7 @@ header {
     overflow: hidden;
     padding: 5px;
     border: none;
-    background-color: #eeeee4;
+    background-color: #fbf6ef;
     box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
     margin-top: 20px;
 }
