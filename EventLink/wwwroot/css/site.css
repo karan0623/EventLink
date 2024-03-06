@@ -1,11 +1,15 @@
 /*Parts of this code ChatGPT was used in order to help with the functionality*/
 body {
-    background-color: #eee;
+    background-color: #C8C8C8;
 }
 
 .title {
     margin-bottom: 50px;
     text-transform: uppercase;
+}
+
+header {
+    background-color: #E55B5B;
 }
 
 .card-block {
@@ -23,7 +27,7 @@ body {
     overflow: hidden;
     padding: 5px;
     border: none;
-    border-radius: .28571429rem;
+    background-color: #eeeee4;
     box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
     margin-top: 20px;
 }
@@ -43,7 +47,7 @@ body {
 
 /* Style the navigation bar */
 .navbar {
-    background-color: #fff; /* Background color */
+    background-color: #22eac5; /* Background color */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
     padding: 15px 0; /* Add some padding to the top and bottom */
 }
