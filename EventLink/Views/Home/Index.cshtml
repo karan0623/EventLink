@@ -67,7 +67,7 @@
     string randomImageUrl = EventLink.Controllers.HomeController.GetRandomImageFromFolder(item.Category);
 
     
-    var nameData = JsonConvert.DeserializeObject<NameData>(item.Name);
+    var nameData = JsonConvert.DeserializeObject<NameData>(item.User);
     string extractedName = nameData?.Name ?? "";
 
     <div class="card">
