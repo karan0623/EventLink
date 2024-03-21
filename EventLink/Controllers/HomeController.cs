@@ -20,7 +20,49 @@ namespace EventLink.Controllers
             _logger = logger;
         }
 
-        
+
+        //public IActionResult Index(string category = "All")
+        //{
+        //    using (var instagramContext = new InstagramPostsEventsContext())
+        //    using (var facebookContext = new FacebookPostsEventsContext())
+        //    using (var twitterContext = new TwitterPostsEventsContext())
+        //    {
+        //        IQueryable<InstagramPostsEvents> instagramQuery = instagramContext.InstagramPostsEvents;
+        //        IQueryable<FacebookPostsEvents> facebookQuery = facebookContext.FacebookPostsEvents;
+        //        IQueryable<TwitterPostsEvents> twitterQuery = twitterContext.TwitterPostsEvents;
+
+        //        if (category != "All")
+        //        {
+        //            instagramQuery = instagramQuery.Where(e => e.Category == category);
+        //            facebookQuery = facebookQuery.Where(e => e.Category == category);
+        //            twitterQuery = twitterQuery.Where(e => e.Category == category);
+        //        }
+
+        //        List<InstagramPostsEvents> instagramData = instagramQuery.ToList();
+        //        List<FacebookPostsEvents> facebookData = facebookQuery.ToList();
+        //        List<TwitterPostsEvents> twitterData = twitterQuery.ToList();
+
+        //        var config = new MapperConfiguration(cfg =>
+        //        {
+        //            cfg.CreateMap<InstagramPostsEvents, InstagramPostsEvents>();
+        //            cfg.CreateMap<FacebookPostsEvents, FacebookPostsEvents>();
+        //            cfg.CreateMap<TwitterPostsEvents, TwitterPostsEvents>();
+        //            // Add other mappings as needed
+        //        });
+
+        //        var mapper = config.CreateMapper();
+
+        //        var combinedViewModel = new CombinedViewModel
+        //        {
+        //            InstagramData = mapper.Map<List<InstagramPostsEvents>>(instagramData),
+        //            FacebookData = mapper.Map<List<FacebookPostsEvents>>(facebookData),
+        //            TwitterData = mapper.Map<List<TwitterPostsEvents>>(twitterData)
+        //        };
+
+        //        return View(combinedViewModel);
+        //    }
+        //}
+
         public IActionResult Index(string category = "All")
         {
             using (var instagramContext = new InstagramPostsEventsContext())
@@ -31,11 +73,20 @@ namespace EventLink.Controllers
                 IQueryable<FacebookPostsEvents> facebookQuery = facebookContext.FacebookPostsEvents;
                 IQueryable<TwitterPostsEvents> twitterQuery = twitterContext.TwitterPostsEvents;
 
-                if (category != "All")
+                // Split the category string into an array of individual categories
+                string[] categories = category.Split(',');
+
+                // If "All" category is selected, retrieve all data
+                if (categories.Contains("All"))
                 {
-                    instagramQuery = instagramQuery.Where(e => e.Category == category);
-                    facebookQuery = facebookQuery.Where(e => e.Category == category);
-                    twitterQuery = twitterQuery.Where(e => e.Category == category);
+                    // No filtering needed
+                }
+                else
+                {
+                    // Filter data based on each selected category
+                    instagramQuery = instagramQuery.Where(e => categories.Contains(e.Category));
+                    facebookQuery = facebookQuery.Where(e => categories.Contains(e.Category));
+                    twitterQuery = twitterQuery.Where(e => categories.Contains(e.Category));
                 }
 
                 List<InstagramPostsEvents> instagramData = instagramQuery.ToList();
@@ -62,9 +113,6 @@ namespace EventLink.Controllers
                 return View(combinedViewModel);
             }
         }
-
-
-
 
 
         public static string GetRandomImageFromFolder(string categoryCode)
