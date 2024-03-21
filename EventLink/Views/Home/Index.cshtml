@@ -10,7 +10,7 @@
 @foreach (var item in Model.InstagramData)
 
 {
-    string randomImageUrl = EventLink.Controllers.HomeController.GetRandomImageFromFolder(item.Category);
+    string randomImageUrl = EventLink.Controllers.HomeController.GetRandomImageFromFolder(item.Category, item.Subcategory); // pass item.subCategory
     <div class="card">
         <div class="row">
             <div class="col-sm-12 col-md-5">
@@ -20,7 +20,7 @@
             </div>
             <div class="col-sm-12 col-md-7">
                 <div class="card-block">
-                    <h4 class="card-title">@item.OwnerFullName (@item.OwnerUsername)</h4>
+                    <h4 class="card-title">@item.OwnerFullName</h4>
                     <p class="card-text">@item.Caption</p>
                 </div>
                 <div class="card-text d-flex justify-content-end">
@@ -34,10 +34,9 @@
     </div>
 }
 
-
 @foreach (var item in Model.FacebookData)
 {
-    string randomImageUrl = EventLink.Controllers.HomeController.GetRandomImageFromFolder(item.Category);
+    string randomImageUrl = EventLink.Controllers.HomeController.GetRandomImageFromFolder(item.Category, item.Subcategory);
     <div class="card">
         <div class="row">
             <div class="col-sm-12 col-md-5">
@@ -54,8 +53,8 @@
                     <button class="btn btn-link expand-button">Read More</button>
                 </div>
                 <br>
-                    <a href="@item.Url" class="btn btn-primary">Go to Post</a>
-               
+                <a href="@item.Url" class="btn btn-primary">Go to Post</a>
+
             </div>
         </div>
     </div>
@@ -64,9 +63,7 @@
 
 @foreach (var item in Model.TwitterData)
 {
-    string randomImageUrl = EventLink.Controllers.HomeController.GetRandomImageFromFolder(item.Category);
-
-    
+    string randomImageUrl = EventLink.Controllers.HomeController.GetRandomImageFromFolder(item.Category, item.Subcategory);
     var nameData = JsonConvert.DeserializeObject<NameData>(item.User);
     string extractedName = nameData?.Name ?? "";
 
@@ -79,7 +76,7 @@
             </div>
             <div class="col-sm-12 col-md-7">
                 <div class="card-block">
-                    <h4 class="card-title">@extractedName</h4> 
+                    <h4 class="card-title">@extractedName</h4>
                     <p class="card-text">@item.FullText</p>
                 </div>
                 <div class="card-text d-flex justify-content-end">
@@ -91,8 +88,6 @@
         </div>
     </div>
 }
-
-
 
 <br>
 <br>
