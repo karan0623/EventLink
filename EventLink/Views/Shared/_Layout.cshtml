@@ -77,51 +77,6 @@
         </nav>
     </header>
 
-
-@*     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Function to handle checkbox state based on localStorage
-            function setCheckboxState() {
-                var selectedFilters = JSON.parse(localStorage.getItem('selectedFilters')) || [];
-                document.querySelectorAll('.form-check-input').forEach(checkbox => {
-                    var category = checkbox.id.replace("filter", "");
-                    checkbox.checked = selectedFilters.includes(category);
-                });
-            }
-
-            // Function to apply filters
-            function applyFilters() {
-                var selectedFilters = [];
-                document.querySelectorAll('.form-check-input').forEach(checkbox => {
-                    if (checkbox.checked) {
-                        selectedFilters.push(checkbox.id.replace("filter", ""));
-                    }
-                });
-
-                // Construct the base URL
-                var baseUrl = "https://localhost:7181/";
-
-                // Append categories to the URL if selectedFilters is not empty
-                var url = selectedFilters.length > 0 ? baseUrl + "?category=" + selectedFilters.join(",") : baseUrl;
-
-                // Save selected filters to localStorage
-                localStorage.setItem('selectedFilters', JSON.stringify(selectedFilters));
-
-                // Redirect to the constructed URL
-                window.location.href = url;
-            }
-
-            // Check and uncheck checkboxes based on localStorage on page load
-            setCheckboxState();
-
-            // Add click event listener to the apply filters button
-            var applyFiltersBtn = document.querySelector('.btn-primary');
-            if (applyFiltersBtn) {
-                applyFiltersBtn.addEventListener("click", applyFilters);
-            }
-        });
-    </script> *@
-
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             function setCheckboxState() {
@@ -177,52 +132,6 @@
             }
         });
     </script>
-
-   @* script for the mutliselect filter functionality *@
-@*     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Function to handle checkbox state based on localStorage
-            function setCheckboxState() {
-                var selectedFilters = JSON.parse(localStorage.getItem('selectedFilters')) || [];
-                document.querySelectorAll('.form-check-input').forEach(checkbox => {
-                    var category = checkbox.id.replace("filter", "");
-                    checkbox.checked = selectedFilters.includes(category);
-                });
-            }
-
-            // Function to apply filters
-            function applyFilters() {
-                var selectedFilters = [];
-                document.querySelectorAll('.form-check-input').forEach(checkbox => {
-                    if (checkbox.checked) {
-                        selectedFilters.push(checkbox.id.replace("filter", ""));
-                    }
-                });
-
-                var url = "@Url.Action("Index")";
-                if (selectedFilters.length > 0) {
-                    url += "?categories=" + selectedFilters.join(",");
-                } else {
-                    // If no filters are selected, remove categories from the URL
-                    url = url.split('?')[0];
-                }
-
-                // Save selected filters to localStorage
-                localStorage.setItem('selectedFilters', JSON.stringify(selectedFilters));
-
-                window.location.href = url;
-            }
-
-            // Check and uncheck checkboxes based on localStorage on page load
-            setCheckboxState();
-
-            // Add click event listener to the apply filters button
-            var applyFiltersBtn = document.querySelector('.btn-primary');
-            if (applyFiltersBtn) {
-                applyFiltersBtn.addEventListener("click", applyFilters);
-            }
-        });
-    </script> *@
 
     @* script for dark mode button, read more text, and navbar toggler icon *@
             <script>
