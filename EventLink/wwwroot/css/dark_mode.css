@@ -32,15 +32,18 @@ body.dark-mode {
     
 .btn.dark-mode {
     margin-top: auto;
-    /*background-color: #28A745;  Button background color */
     color: #fff;  /*Button text color */
     border: none;  /*Remove button border*/ 
 }
 
-.bg-light {
-    --bs-bg-opacity: 0; /*Makes the original space where the navbar was appear black instead of the original background of white*/
-    background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity)) !important;
+.btn-dark.dark-mode {
+    color: #000000;
 }
+
+    .bg-light {
+        --bs-bg-opacity: 0; /*Makes the original space where the navbar was appear black instead of the original background of white*/
+        background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity)) !important;
+    }
 
 /* Dark mode styles for the navbar-toggler icon */
 .navbar-toggler-icon.dark-mode {
@@ -200,6 +203,12 @@ body.dark-mode .navbar {
     background-color: #333; /* Dark background color */
     color: #fff; /* Light text color */
 }
+
+.dropdown-menu.dark-mode {
+    color: #fff;
+}
+
+
 
 
 

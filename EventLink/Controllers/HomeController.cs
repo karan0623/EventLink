@@ -20,7 +20,6 @@ namespace EventLink.Controllers
             _logger = logger;
         }
 
-        
         public IActionResult Index(string category = "All")
         {
             using (var instagramContext = new InstagramPostsEventsContext())
@@ -31,11 +30,20 @@ namespace EventLink.Controllers
                 IQueryable<FacebookPostsEvents> facebookQuery = facebookContext.FacebookPostsEvents;
                 IQueryable<TwitterPostsEvents> twitterQuery = twitterContext.TwitterPostsEvents;
 
-                if (category != "All")
+                // Split the category string into an array of individual categories
+                string[] categories = category.Split(',');
+
+                // If "All" category is selected, retrieve all data
+                if (categories.Contains("All"))
                 {
-                    instagramQuery = instagramQuery.Where(e => e.Category == category);
-                    facebookQuery = facebookQuery.Where(e => e.Category == category);
-                    twitterQuery = twitterQuery.Where(e => e.Category == category);
+                    // No filtering needed
+                }
+                else
+                {
+                    // Filter data based on each selected category
+                    instagramQuery = instagramQuery.Where(e => categories.Contains(e.Category));
+                    facebookQuery = facebookQuery.Where(e => categories.Contains(e.Category));
+                    twitterQuery = twitterQuery.Where(e => categories.Contains(e.Category));
                 }
 
                 List<InstagramPostsEvents> instagramData = instagramQuery.ToList();
@@ -64,6 +72,7 @@ namespace EventLink.Controllers
         }
         
         public static string GetRandomImageFromFolder(string categoryCode, string subcategoryCode)
+
         {
             string imageFolderSubPath;
 

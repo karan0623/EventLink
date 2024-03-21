@@ -64,8 +64,6 @@
 @foreach (var item in Model.TwitterData)
 {
     string randomImageUrl = EventLink.Controllers.HomeController.GetRandomImageFromFolder(item.Category, item.Subcategory);
-
-
     var nameData = JsonConvert.DeserializeObject<NameData>(item.User);
     string extractedName = nameData?.Name ?? "";
 

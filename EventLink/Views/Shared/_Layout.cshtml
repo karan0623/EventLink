@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - EventLink</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+   @*  <link rel="stylesheet" href="~/path/to/bootstrap-multiselect.css" /> *@
     <link rel="stylesheet" href="~/EventLink.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/dark_mode.css" asp-append-version="true" />
@@ -22,134 +23,49 @@
                     <span></span>
                     <span></span>
                 </span>
-
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Filter
-          </a>
+                            Filter
+                        </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="@Url.Action("Index", new { category = "All" })">All</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", new { category = "S" })">Sports</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", new { category = "C" })">Concerts</a>
-                            <a class="dropdown-item" href="@Url.Action("Index", new { category = "R" })">Restaurants</a>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="filterAll" checked>
+                                <label class="form-check-label" for="filterAll">
+                                    All
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="filterSports">
+                                <label class="form-check-label" for="filterSports">
+                                    Sports
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="filterConcerts">
+                                <label class="form-check-label" for="filterConcerts">
+                                    Concerts
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="filterRestaurants">
+                                <label class="form-check-label" for="filterRestaurants">
+                                    Restaurants
+                                </label>
+                            </div>
+                            <button class="btn btn-primary" onclick="applyFilters()">Apply</button>
                         </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <button id="darkModeToggle" class="btn btn-dark">Dark Mode</button>
                     </li>
                 </ul>
 
-                <button id="darkModeToggle">Dark Mode</button>
-
-                @* Script for expand button on dropdown for card text, parts of this were created with ChatGPT to help refine this functionality *@
-
-                <script>
-                    document.addEventListener("DOMContentLoaded", function () {
-
-                        function toggleCardText(card) {
-                            const cardText = card.querySelector('.card-text');
-                            const expandButton = card.querySelector('.expand-button');
-
-                            cardText.classList.toggle('expanded');
-
-                            if (cardText.classList.contains('expanded')) {
-                                expandButton.innerText = 'Read Less';
-                            } else {
-                                expandButton.innerText = 'Read More';
-                            }
-                        }
-
-                        // Add click event listeners to each card's expand button
-                        document.querySelectorAll('.expand-button').forEach(function (button) {
-                            button.addEventListener('click', function () {
-                                const card = button.closest('.card');
-                                toggleCardText(card);
-                            });
-                        });
-
-                        const darkModeToggle = document.getElementById("darkModeToggle");
-                        const body = document.body;
-                        const dropdownButton = document.getElementById("navbarScrollingDropdown");
-                        const navbarCollapse = document.getElementById("navbarSupportedContent");
-                        const navbarTogglerIcon = document.querySelector(".navbar-toggler");
-                        const cards = document.querySelectorAll(".card");
-                        const titles = document.querySelectorAll(".title");
-                        const cardBlocks = document.querySelectorAll(".card-block");
-                        const buttons = document.querySelectorAll(".btn");
-                        const navbar = document.querySelectorAll(".navbar");
-                        const navbarBrands = document.querySelectorAll(".navbar-brand");
-                        const navLinks = document.querySelectorAll(".nav-link");
-                        const dropdownMenus = document.querySelectorAll(".dropdown-menu");
-                        const searchInputs = document.querySelectorAll(".form-control[type='search']");
-                        const searchButtons = document.querySelectorAll(".btn-outline-success[type='submit']");
-                        const navbarTogglerIcons = document.querySelectorAll(".navbar-toggler-icon");
-                        const darkModeNavbarCollapse = document.querySelector(".collapse");
-                        const header = document.querySelector("header");
-
-                        // Function to handle the click on the navbar-toggler icon
-                        const handleNavbarToggle = () => {
-                            navbarCollapse.classList.toggle("show");
-                            darkModeToggle.classList.remove("collapsed");
-                        };
-
-                        // Function to toggle dark mode
-                        const toggleDarkMode = () => {
-                            body.classList.toggle("dark-mode");
-                            cards.forEach(card => card.classList.toggle("dark-mode"));
-                            titles.forEach(title => title.classList.toggle("dark-mode"));
-                            cardBlocks.forEach(block => block.classList.toggle("dark-mode"));
-                            buttons.forEach(button => button.classList.toggle("dark-mode"));
-                            navbar.forEach(navbar => navbar.classList.toggle("dark-mode"));
-                            navbarBrands.forEach(brand => brand.classList.toggle("dark-mode"));
-                            navLinks.forEach(link => link.classList.toggle("dark-mode"));
-                            dropdownMenus.forEach(menu => menu.classList.toggle("dark-mode"));
-                            searchInputs.forEach(input => input.classList.toggle("dark-mode"));
-                            searchButtons.forEach(button => button.classList.toggle("dark-mode"));
-                            navbarTogglerIcons.forEach(icon => icon.classList.toggle("dark-mode"));
-                            darkModeNavbarCollapse.classList.toggle("dark-mode"); // Toggle dark mode for the .navbar-collapse
-                            header.classList.toggle("dark-mode");
-                        };
-
-                        // Add a click event listener to the button
-                        darkModeToggle.addEventListener("click", () => {
-                            toggleDarkMode();
-                        });
-
-                        // Add a click event listener to the navbar-toggler icon
-                        navbarTogglerIcon.addEventListener("click", () => {
-                            handleNavbarToggle();
-                        });
-
-                        // Add this code to handle dropdowns
-                        document.querySelectorAll('.nav-item.dropdown').forEach(item => {
-                            item.addEventListener('click', () => {
-                                item.classList.toggle('show');
-                            });
-
-   
-                        // Add click event listener for the dropdown button
-                        dropdownButton.addEventListener('click', (event) => {
-                            event.stopPropagation(); // Prevent Bootstrap from immediately closing the dropdown
-                                 dropdownMenu.classList.toggle('show');
-                            });
-
-                        // Add click event listener to close the dropdown when clicking outside
-                        document.addEventListener('click', (event) => {
-                            if (!event.target.matches('.dropdown-toggle')) {
-                                 dropdownMenu.classList.remove('show');
-                                }
-                            });
-
-                         
-                        });
-                    });
-                    
-                </script>
-
-
-
-                <form class="form-inline my-2 my-lg-0">
+                <form class="form-inline my-2 my-lg-0 ml-auto">
                     <div class="input-group">
                         <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="searchInput">
                         <div class="input-group-append">
@@ -157,11 +73,147 @@
                         </div>
                     </div>
                 </form>
-
             </div>
         </nav>
-        
     </header>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function setCheckboxState() {
+                var selectedFilters = JSON.parse(localStorage.getItem('selectedFilters')) || [];
+                document.querySelectorAll('.form-check-input').forEach(checkbox => {
+                    var category = checkbox.id.replace("filter", "");
+                    if (category === "S") {
+                        checkbox.checked = selectedFilters.includes("Sports");
+                    } else if (category === "C") {
+                        checkbox.checked = selectedFilters.includes("Concerts");
+                    } else if (category === "R") {
+                        checkbox.checked = selectedFilters.includes("Restaurants");
+                    }
+                });
+            }
+
+            // Function to apply filters
+            function applyFilters() {
+                var selectedFilters = [];
+                document.querySelectorAll('.form-check-input').forEach(checkbox => {
+                    if (checkbox.checked) {
+                        var category = checkbox.id.replace("filter", "");
+                        if (category === "Sports") {
+                            selectedFilters.push("S");
+                        } else if (category === "Concerts") {
+                            selectedFilters.push("C");
+                        } else if (category === "Restaurants") {
+                            selectedFilters.push("R");
+                        }
+                    }
+                });
+
+                // Construct the base URL
+                var baseUrl = "https://localhost:7181/";
+
+                // Append categories to the URL if selectedFilters is not empty
+                var url = selectedFilters.length > 0 ? baseUrl + "?category=" + selectedFilters.join(",") : baseUrl;
+
+                // Save selected filters to localStorage
+                localStorage.setItem('selectedFilters', JSON.stringify(selectedFilters));
+
+                // Redirect to the constructed URL
+                window.location.href = url;
+            }
+
+            // Check and uncheck checkboxes based on localStorage on page load
+            setCheckboxState();
+
+            // Add click event listener to the apply filters button
+            var applyFiltersBtn = document.querySelector('.btn-primary');
+            if (applyFiltersBtn) {
+                applyFiltersBtn.addEventListener("click", applyFilters);
+            }
+        });
+    </script>
+
+    @* script for dark mode button, read more text, and navbar toggler icon *@
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+
+                    function toggleCardText(card) {
+                        const cardText = card.querySelector('.card-text');
+                        const expandButton = card.querySelector('.expand-button');
+
+                        cardText.classList.toggle('expanded');
+
+                        if (cardText.classList.contains('expanded')) {
+                            expandButton.innerText = 'Read Less';
+                        } else {
+                            expandButton.innerText = 'Read More';
+                        }
+                    }
+
+                    // Add click event listeners to each card's expand button
+                    document.querySelectorAll('.expand-button').forEach(function (button) {
+                        button.addEventListener('click', function () {
+                            const card = button.closest('.card');
+                            toggleCardText(card);
+                        });
+                    });
+
+                    const darkModeToggle = document.getElementById("darkModeToggle");
+                    const body = document.body;
+                    // const dropdownButton = document.getElementById("navbarScrollingDropdown");
+                    const navbarCollapse = document.getElementById("navbarSupportedContent");
+                    const navbarTogglerIcon = document.querySelector(".navbar-toggler");
+                    const cards = document.querySelectorAll(".card");
+                    const titles = document.querySelectorAll(".title");
+                    const cardBlocks = document.querySelectorAll(".card-block");
+                    const buttons = document.querySelectorAll(".btn");
+                    const navbar = document.querySelectorAll(".navbar");
+                    const navbarBrands = document.querySelectorAll(".navbar-brand");
+                    const navLinks = document.querySelectorAll(".nav-link");
+                    const dropdownMenus = document.querySelectorAll(".dropdown-menu");
+                    const searchInputs = document.querySelectorAll(".form-control[type='search']");
+                    const searchButtons = document.querySelectorAll(".btn-outline-success[type='submit']");
+                    const navbarTogglerIcons = document.querySelectorAll(".navbar-toggler-icon");
+                    const darkModeNavbarCollapse = document.querySelector(".collapse");
+                    const header = document.querySelector("header");
+
+                    // Function to handle the click on the navbar-toggler icon
+                    const handleNavbarToggle = () => {
+                        navbarCollapse.classList.toggle("show");
+                        darkModeToggle.classList.remove("collapsed");
+                    };
+
+                    // Function to toggle dark mode
+                    const toggleDarkMode = () => {
+                        body.classList.toggle("dark-mode");
+                        cards.forEach(card => card.classList.toggle("dark-mode"));
+                        titles.forEach(title => title.classList.toggle("dark-mode"));
+                        cardBlocks.forEach(block => block.classList.toggle("dark-mode"));
+                        buttons.forEach(button => button.classList.toggle("dark-mode"));
+                        navbar.forEach(navbar => navbar.classList.toggle("dark-mode"));
+                        navbarBrands.forEach(brand => brand.classList.toggle("dark-mode"));
+                        navLinks.forEach(link => link.classList.toggle("dark-mode"));
+                        dropdownMenus.forEach(menu => menu.classList.toggle("dark-mode"));
+                        searchInputs.forEach(input => input.classList.toggle("dark-mode"));
+                        searchButtons.forEach(button => button.classList.toggle("dark-mode"));
+                        navbarTogglerIcons.forEach(icon => icon.classList.toggle("dark-mode"));
+                        darkModeNavbarCollapse.classList.toggle("dark-mode"); // Toggle dark mode for the .navbar-collapse
+                        header.classList.toggle("dark-mode");
+                    };
+
+                    // Add a click event listener to the button
+                    darkModeToggle.addEventListener("click", () => {
+                        toggleDarkMode();
+                    });
+
+                    // Add a click event listener to the navbar-toggler icon
+                    navbarTogglerIcon.addEventListener("click", () => {
+                        handleNavbarToggle();
+                    });
+                });
+            </script>
+
+
     <div class="container">
                 <main role="main" class="pb-3">
                     @RenderBody()
@@ -170,6 +222,7 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @* <script src="~/path/to/bootstrap-multiselect.js"></script> *@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
 
