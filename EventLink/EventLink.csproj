@@ -23,4 +23,10 @@
 
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\others\museum\" />
+    <Folder Include="wwwroot\images\others\zoo\" />
+    <Folder Include="wwwroot\images\sports\default\" />
+  </ItemGroup>
+
 </Project>

@@ -120,6 +120,23 @@ namespace EventLink.Controllers
                     // Then, pull image from default
                     imageFolderSubPath = "concerts/default";
                 }
+
+            }
+            // Others Check: 
+            else if (categoryCode.ToLower() == "o")
+            {
+                // Checking if post falls under any of the subcategories
+                if (subcategoryCode.ToLower() == "zoo" || subcategoryCode.ToLower() == "museum")
+                {
+                    // Then, pull image from that subcategory
+                    imageFolderSubPath = Path.Combine("others", subcategoryCode.ToLower());
+                }
+                else
+                {
+                    // Then, pull image from default
+                    imageFolderSubPath = "others/default";
+                }
+
             }
             // If no category assigned
             else
