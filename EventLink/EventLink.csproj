@@ -24,6 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\images\others\aquarium\" />
+    <Folder Include="wwwroot\images\others\kingsIsand\" />
     <Folder Include="wwwroot\images\sports\fcCincinnati\" />
     <Folder Include="wwwroot\images\sports\cincyCyclones\" />
     <Folder Include="wwwroot\images\sports\tennis\" />
