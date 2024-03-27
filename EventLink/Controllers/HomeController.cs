@@ -95,7 +95,7 @@ namespace EventLink.Controllers
             else if (categoryCode.ToLower() == "s")
             {
                 // Checking if post falls under any of the subcategories
-                if (subcategoryCode.ToLower() == "bearcats" || subcategoryCode.ToLower() == "bengals" || subcategoryCode.ToLower() == "reds")
+                if (subcategoryCode.ToLower() == "bearcats" || subcategoryCode.ToLower() == "bengals" || subcategoryCode.ToLower() == "reds" || subcategoryCode.ToLower() == "tennis" || subcategoryCode.ToLower() == "fcCincinnati" || subcategoryCode.ToLower() == "cincyCyclones")
                 {
                     // Then, pull image from that subcategory
                     imageFolderSubPath = Path.Combine("sports", subcategoryCode.ToLower());
@@ -126,7 +126,7 @@ namespace EventLink.Controllers
             else if (categoryCode.ToLower() == "o")
             {
                 // Checking if post falls under any of the subcategories
-                if (subcategoryCode.ToLower() == "zoo" || subcategoryCode.ToLower() == "museum")
+                if (subcategoryCode.ToLower() == "zoo" || subcategoryCode.ToLower() == "museum" || subcategoryCode.ToLower() == "aquarium" || subcategoryCode.ToLower() == "kingsIsland")
                 {
                     // Then, pull image from that subcategory
                     imageFolderSubPath = Path.Combine("others", subcategoryCode.ToLower());
