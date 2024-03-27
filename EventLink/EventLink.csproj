@@ -29,7 +29,6 @@
     <Folder Include="wwwroot\images\sports\fcCincinnati\" />
     <Folder Include="wwwroot\images\sports\cincyCyclones\" />
     <Folder Include="wwwroot\images\sports\fcCincinnati\" />
-    <Folder Include="wwwroot\images\sports\tennis\" />
   </ItemGroup>
 
 </Project>
