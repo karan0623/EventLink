@@ -209,8 +209,16 @@
                         navbarTogglerIcons.forEach(icon => icon.classList.toggle("dark-mode"));
                         darkModeNavbarCollapse.classList.toggle("dark-mode"); // Toggle dark mode for the .navbar-collapse
                         header.classList.toggle("dark-mode");
+                // Save dark mode state to localStorage
+                const isDarkMode = body.classList.contains("dark-mode");
+                localStorage.setItem("darkMode", isDarkMode ? "true" : "false");
                     };
 
+            // Load dark mode state from localStorage on page load
+            const isDarkMode = localStorage.getItem("darkMode") === "true";
+            if (isDarkMode) {
+                toggleDarkMode();
+            }
                     // Add a click event listener to the button
                     darkModeToggle.addEventListener("click", () => {
                         toggleDarkMode();
