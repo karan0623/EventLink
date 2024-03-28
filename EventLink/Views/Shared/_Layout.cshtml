@@ -56,6 +56,12 @@
                                     Restaurants
                                 </label>
                             </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="filterOthers">
+                                <label class="form-check-label" for="filterOthers">
+                                    Others
+                                </label>
+                            </div>
                             <button class="btn btn-primary" onclick="applyFilters()">Apply</button>
                         </div>
                     </li>
@@ -89,6 +95,8 @@
                         checkbox.checked = selectedFilters.includes("Concerts");
                     } else if (category === "R") {
                         checkbox.checked = selectedFilters.includes("Restaurants");
+                    } else if (category === "O") {
+                        checkbox.checked = selectedFilters.includes("Others");
                     }
                 });
             }
@@ -105,6 +113,8 @@
                             selectedFilters.push("C");
                         } else if (category === "Restaurants") {
                             selectedFilters.push("R");
+                        } else if (category === "Others") {
+                            selectedFilters.push("O");
                         }
                     }
                 });
